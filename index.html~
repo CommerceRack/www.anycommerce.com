@@ -1,0 +1,32 @@
+<html>
+
+<head>
+<title>anyCommerce: apps share everything easily</title>
+<meta name="google-site-verification" content="oQRxU5Se_zeiZKmUgF3g_zfzwpxNgcNleDdRgtIP5UY" />
+<&| /includes/common/head.html &></&> 
+<&| /includes/login/head.html &></&>
+</head>
+
+<body>
+<&| /includes/common/body.html &></&> 
+<center>
+
+
+<table width="500"><td><td>
+
+<div align="right">
+<a href="#" onClick=" $('#loginFormContainer').dialog({modal:true,width:500,height:500}); instantiateController();">login</a>
+&nbsp; | &nbsp; 
+<a href="#" onClick=" $('#registerFormContainer').dialog({modal:true,width:500,height:500});">register</a>
+</div>
+
+<img width="500" src="/anyCommerce_logo-500x6255.png"><br>
+
+
+</td></tr></table>
+</center>
+<&| /includes/login/body.html &></&>
+<&| /includes/register/body.html &></&>
+
+<&| /includes/common/footer.html &></&> 
+</body> </html>

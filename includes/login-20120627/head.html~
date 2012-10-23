@@ -1,0 +1,50 @@
+<!-- /include/login/head.html -->
+
+
+<script type="text/javascript" src="//crypto-js.googlecode.com/files/2.5.3-crypto-md5.js"></script>
+<script type="text/javascript" src="//www.zoovy.com/biz/ajax/zmvc/201225/model.js?ts=20120702000000"></script>
+<script type="text/javascript" src="//www.zoovy.com/biz/ajax/zmvc/201225/controller.js"></script>
+<script type="text/javascript" src="//www.zoovy.com/biz/ajax/zmvc/201225/json2.js"></script>
+
+<script>
+var myControl; //create global var for controller. makes using firebug a ton easier.
+
+function instantiateController()	{
+	$.support.cors = true;  //cross site scripting for non cors sites. will b needed for IE10. IE8 & 9 don't support xss well.
+	
+	myControl = new zController({
+		"sdomain":"www.anycommerce.com",
+		"noVerifyzjsid":true, //skip the verify session. should only do this on admin login page.
+		"jqurl":"https://www.anycommerce.com/webapi/jquery/", //could be changed to zoovy.com/webapi...
+		"release":"2012070200000", //increment this with each change. should solve caching issues.
+		"secureURL" : "https://www.anycommerce.com" //will change based on whether or not user has ssl cert. end with a slash.
+		},{});  //instantiate controller. handles all logic and communication between model and view.
+	myControl.storageFunctions.deleteCookie('zjsid');
+	var zuser = myControl.storageFunctions.readLocal('zuser');
+	if(myControl.util.isSet(zuser))
+		$('#loginFormLogin').val(zuser);
+//	localStorage.clear(); //make sure all previous session/cart data is gone. removed 2012-04-18
+	var msg = decodeURI(myControl.util.getParameterByName('msg'));
+	if(msg)	{
+		$('#loginMessaging').append(myControl.util.formatMessage("A login error occurred. Please try again. If error persists, please contact Zoovy support.  <p class='hint zhint'>Error: "+msg+"<\/p>"));
+		}
+	}
+
+
+<%perl>
+
+if ($ENV{'QUERY_STRING'} =~ /verb\=login/) { 
+	print qq~
+\$(document).ready(
+	function() {
+		// auto-load login screen
+		\$('#loginFormContainer').dialog({modal:true,width:500,height:500}); instantiateController();
+		}
+	);
+	~;
+	}
+</%perl>
+
+</script>
+
+<!-- /include/head/login.html -->
