@@ -1,0 +1,303 @@
+<!-- begin includes/register/body.html -->
+<div id='registerFormContainer' class='displayNone' title='anyCommerce Registration'>
+
+<%perl>
+
+use strict;
+use Data::GUID;
+use CGI;
+use ZTOOLKIT;
+use DBINFO;
+use ZOOVY;
+
+my $SOURCE = undef;
+## some other lead source, we at least know this came in from the web.
+my ($src,$opid,$meta) = split(/\|/,$SOURCE,3); 
+
+
+
+my $q = new CGI;
+my $VERB = $q->param('VERB');
+$VERB =~ s/[^A-Z\-]+//g;
+
+my $zdbh = &DBINFO::db_zoovy_connect();
+my $LEADID = -1;
+my $UUID = &ZTOOLKIT::xssdeclaw($q->param('UUID'));
+if ($UUID eq '') { 
+	$UUID = Data::GUID->new()->as_string(); 
+	}
+else {
+	my $pstmt = "select ID from LEADS where SUGARGUID=".$zdbh->quote($UUID);
+	($LEADID) = $zdbh->selectrow_array($pstmt);
+	}
+
+if (&ZOOVY::servername() eq 'newdev') {
+	print "NEWDEV[UUID:$UUID LEAD:$LEADID]<br>";
+	}
+
+&DBINFO::db_zoovy_close();
+
+if (($VERB eq 'SIGNUP') || ($VERB eq 'SIGNUP-INIT')) {
+	## SIGNUP-INIT just causes the SIGNUP screen to auto-start (without throwing errors)
+	if ($VERB eq 'SIGNUP-INIT') { $VERB = ''; }
+</%perl>
+	<script>
+	$(document).ready(
+		function() {
+			// auto-load login screen
+			$('#registerFormContainer').dialog({modal:true,width:500,height:500}); 
+			}
+		);
+	</script>	
+<%perl>
+	}
+
+my $firstname = &ZTOOLKIT::xssdeclaw($q->param('firstname'));
+my $lastname = &ZTOOLKIT::xssdeclaw($q->param('lastname'));
+my $phone = &ZTOOLKIT::xssdeclaw($q->param('phone'));
+my $email = &ZTOOLKIT::xssdeclaw($q->param('email'));
+my $url = &ZTOOLKIT::xssdeclaw($q->param('url')); 
+my $domain = &ZTOOLKIT::xssdeclaw($q->param('domain'));
+my $company = &ZTOOLKIT::xssdeclaw($q->param('company'));
+my $refer = &ZTOOLKIT::xssdeclaw($q->param('refer'));
+
+my @ERRORS = ();
+if ($VERB eq 'SIGNUP') {
+	if ($company eq '') { $company = $q->param('domain'); }
+	$company =~ s/^http\:\/\///g;
+	$company =~ s/[\<\>\"\']+//gs;
+	$phone =~ s/-//gs;
+
+	if (!defined($phone)) { push @ERRORS, "Sorry, phone number is required"; }
+ 	if ($firstname =~ /[\d]+/) { push @ERRORS, "Sorry, numbers are not allowed in your first name"; }
+ 	elsif ($lastname =~ /[\d]+/) { push @ERRORS, "Sorry, numbers are not allowed in your last name"; }
+	elsif ($phone =~ /^0/) {
+		push @ERRORS, "Sorry, Zoovy does not provide services for non US Businesses at this time.";
+		}
+	elsif ( 
+		($phone =~ /^[1]+$/) || ($phone =~ /^[2]+$/) || ($phone =~ /^[3]+$/) || 
+		($phone =~ /^[1]+$/) || ($phone =~ /^[2]+$/) || ($phone =~ /^[3]+$/) || 
+		($phone =~ /^[1]+$/) || ($phone =~ /^[2]+$/) || ($phone =~ /^[3]+$/)) {
+		push @ERRORS, "Wow! Thats a pretty amazing phone number, are you sure it's correct? (Try again)";
+		}
+	elsif ($phone =~ /5551212$/) {
+		push @ERRORS, "Please supply a valid phone number.";
+		}
+ 	elsif (not &ZTOOLKIT::validate_phone($phone,'')) {
+		push @ERRORS, "Phone number missing or invalid.";
+ 		}
+	if ($firstname eq '' || $lastname eq '') {
+		push @ERRORS, "Please supply a first and last name.";
+		} 
+	if ($email eq '') {
+		push @ERRORS, 'Please supply a valid email address.';
+		} 
+ 	elsif (!&ZTOOLKIT::validate_email($email)) {
+		push @ERRORS, 'Email address appears invalid. Please try again.';
+		} 
+ 	else {
+		# email okay
+		}
+
+	if (scalar(@ERRORS)==0) {
+		require SITE;
+		my ($whatis) = &SITE::whatis($ENV{'REMOTE_ADDR'},$ENV{'HTTP_USER_AGENT'},$ENV{'SERVER_NAME'},$ENV{'REQUEST_URI'});
+		if (($whatis eq 'SCAN') || ($whatis eq 'BOT')) {
+			$VERB = 'SORRY-BOT';
+			}
+		}
+	
+	if (scalar(@ERRORS)==0) {
+		## insert the lead [verify db handle is good]
+		if (not defined $opid) { $opid = 'NONE'; }
+		if (not defined $src) { $src = 'WEB'; }
+		if (not defined $firstname) { $firstname = ''; }
+		if (not defined $lastname) { $lastname = ''; }
+		if (not defined $meta) { $meta = ''; }
+		if (not defined $phone) { $phone = ''; }
+		if (not defined $url) { $url = ''; }
+		if (not defined $email) { $email = ''; }
+		my $ipaddress = $ENV{'REMOTE_ADDR'};
+	
+		my $pstmt = DBINFO::insert($zdbh,'LEADS',{ 
+			SUGARGUID=>$UUID,
+ 			SRC=>$src,OPERATORID=>$opid,CREATED=>&ZTOOLKIT::mysql_from_unixtime(time()),
+ 			COMPANY_NAME=>$company,CONTACT_FIRSTNAME=>$firstname,CONTACT_LASTNAME=>$lastname,
+ 			META=>$meta,
+			IPADDRESS=>$ipaddress,
+			PHONE_NUMBER=>$phone,WEBSITE=>$url,EMAIL=>$email},debug=>2);
+	
+		print STDERR $pstmt."\n";
+
+		if ($pstmt ne '') {
+			$zdbh->do($pstmt);
+			}
+	
+  		($LEADID) = &DBINFO::last_insert_id($zdbh);
+		if ($LEADID == 0) {
+			push @ERRORS, "internal database error - support has been notified";
+			require ZOOVY;
+			&ZOOVY::confess("","error trying to create lead",justkidding=>1);
+			}
+
+		
+		}
+	
+	
+	if (scalar(@ERRORS)>0) { 
+		$VERB = 'TRYAGAIN'; 
+		}	
+
+	if ($VERB eq 'SIGNUP') {
+		$VERB = 'SIGNUP-OKAY';
+		}
+	}
+	
+	
+if ($VERB eq 'SORRY-BOT') {
+</%perl>
+	Sorry, but we've identified you as a bot or security scanner so we can't create a trial for you.
+	If you believe you've received this message in error please contact our technical support at 866-974-0332
+<%perl>
+	}
+
+my ($ZJSID,$result) = undef;
+if ($VERB eq 'SIGNUP-OKAY') {
+	## print "SIGNUP-OKAY";
+	
+	##
+	## ACTUALLY CREATE A USER AND LET THEM LOGIN
+	##
+	my $DAYS = -1;
+
+	# print STDERR "LEADID'=>$LEADID,'PACKAGE'=>$PACKAGE,'DURATION'=>$DAYS\n";
+	
+	require ZSETUP;
+	($result) = &ZSETUP::createuser('LEADID'=>$LEADID,'PACKAGE'=>'ANYONE','DURATION'=>-1);
+
+	if (not defined $result) {
+		push @ERRORS, "SIGNUP-SANITY: No response from ZSETUP";
+		}
+	elsif (defined $result->{'@errors'}) {
+		foreach my $msg (@{$result->{'@errors'}}) {
+			push @ERRORS, "ZSETUP - $msg";
+			}
+		}
+	elsif (not defined $result->{'USERNAME'}) {
+		push @ERRORS, "SIGNUP-SANITY: No USERNAME returned in result";
+		}
+	else {
+		require AUTH;
+		my ($TOKEN) = &AUTH::create_session($result->{'USERNAME'},'ADMIN',$ENV{'REMOTE_ADDR'},'');
+		($ZJSID,my $ERROR) = &AUTH::authorize_session($result->{'USERNAME'},'ADMIN',$TOKEN,0);
+		if ($ERROR ne '') {
+			push @ERRORS, "AUTH - $ERROR";
+			}
+		}	
+
+	if (scalar(@ERRORS)>0) {
+		$VERB = "TRYAGAIN";
+		}
+	else {
+		$VERB = "SUCCESS";
+		}
+	}
+	
+	
+if ($VERB eq 'SUCCESS') {
+</%perl>
+Your account has been created and an email has been sent with the auto-generated password. 
+Simply the link below to login!<br>
+<br>
+<table>
+<!--
+	<tr>
+		<td><b>UUID:</b></td>
+		<td><b><% $UUID %></b></td>
+	</tr>
+	<tr>
+		<td><b>LEAD:</b></td>
+		<td><b><% $LEADID %></b></td>
+	</tr>
+-->
+	<tr>
+		<td><b>Username:</b></td>
+		<td><b><% $result->{'USERNAME'} %></b></td>
+	</tr>
+	<tr>
+		<td><b>Password:</b></td>
+		<td><b><% ($result->{'PASSWORD'} eq '')?'**Check your Email**':$result->{'PASSWORD'} %></b></td>
+	</tr>
+</table>
+<i>Please write down this information.</i><br>
+<br>
+
+<a href="http://www.zoovy.com/biz/index.cgi?zjsid=<% $ZJSID %>">
+<b>Click Here to Login</b>
+</a>
+
+<br>
+<br>	
+<%perl>
+	}
+	
+	
+if (($VERB eq '') || ($VERB eq 'TRYAGAIN')) {
+</%perl>
+
+
+<form id="signup" name="signup" action="/index.html">
+<input type="hidden" name="VERB" value="SIGNUP">
+<input type="hidden" name="PACKAGE" value="ANYCOM">
+<input type="hidden" name="UUID" value="<% $UUID %>">
+
+<%perl>
+if ($VERB eq 'TRYAGAIN') {
+	## ERROR OUTPUT
+	print "<h4><font color='red'>Please correct errors and try this again...</font></h4>";
+	foreach my $msg (@ERRORS) {
+		print "<li> <font color='red'>$msg</font>";
+		}
+	}
+</%perl>
+
+<table>
+<tr>
+	<td><label for="firstname">Name:</label></td>
+	<td>
+		<input id="firstname" name="firstname" type="textbox" size="14" placeholder="First" value="<% $firstname %>" required>
+		<input id="lastname" name="lastname" type="textbox" size="14" placeholder="Last" value="<% $lastname %>" required>
+	</td>
+</tr>
+<tr>
+	<td><label for="email">Website</label></td>
+	<td><input id="domain" name="domain" type="domain" size="35" placeholder="www.domain.com" value="<% $domain %>" required ></td>
+</tr>
+<tr>
+	<td><label for="email">Email</label></td>
+	<td><input id="email" name="email" type="email" size="35" placeholder="example@domain.com" value="<% $email %>" required ></td>
+</tr>
+<tr>
+	<td><label for="phone">Phone</label></td>
+	<td><input id="phone" name=phone type=phone size="12" placeholder="555-555-1212" value="<% $phone %>" required ></td>
+</tr>
+<tr>
+	<td><label for="refer">Referer Code</label></td>
+	<td><input id="refer" name="refer" type="refer" size="8" placeholder="optional" value="<% $refer %>" optional ></td>
+</tr>
+</table>
+
+<button type="submit" form="signup" class='button' id='userRegisterButton'>
+<span class='ui-button-text'>Register</span>
+</button>
+
+
+
+</form>
+
+<%perl>
+	}
+</%perl>
+
+</div>
+<!-- end includes/register/body.html -->
