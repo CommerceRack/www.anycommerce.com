@@ -1,1 +1,0 @@
-The link to the anycommerce.com preview site is: anycommerce.businesscatalyst.com
