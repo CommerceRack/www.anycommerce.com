@@ -172,7 +172,7 @@ header > nav.access > ul > li.first a, header > nav > ul > li.last a{
     background-position: right center;
     background-repeat: no-repeat;
     float: left;
-    height: 63px;
+    height: 90px;
     padding: 10px 0;
     width: 295px;
 }
@@ -305,7 +305,7 @@ header > nav.access > ul > li.first a, header > nav > ul > li.last a{
 	min-height:77px;
 	padding:23px 0;
 	width:100%;
-	background-color:#88d0df;
+	background-color: white;
 }
 .partners_inner{
 	margin: 0 auto;

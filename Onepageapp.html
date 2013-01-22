@@ -7,14 +7,24 @@ VERSION: 2013-1-22-11-48-00
 
 -->
 	<meta charset="utf-8">
-	<link href="css/style.css" rel="stylesheet" type="text/css"/>
-	<link href="onepageapp.css" rel="stylesheet" type="text/css"/>
-	<!--
-	<script src="https://webfonts.creativecloud.com/cabin:n4:all;rationale:n4:all;abel:n4:all;montserrat:n4:all;cabin-condensed:n7:all.js" type="text/javascript"></script>
-	-->
-	<script src="font-cabin.js" type="text/javascript"></script>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'BenchNine:400,300,700:latin', 'Cabin+Condensed:400,500,600,700:latin' ]  }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); </script>
+	
+	
 	<script type="text/javascript">
 
 		$.fn.doesExist = function(){
@@ -220,7 +230,7 @@ VERSION: 2013-1-22-11-48-00
 				<div class="glance_inner">
 					<div class="head_descrptn">
 						<h5>Features at a Glance</h5>
-						<p>Sell your products via any electronic vehicle and marketplace while keeping track of all of your vital bussiness information in one secure and reliable place.</p>
+						<p>Sell your products via any electronic vehicle and marketplace <br />while keeping track of all of your vital bussiness information <br />in one secure and reliable place.</p>
 					</div>
 					<div class="glancetab">
 						<ul>
@@ -260,27 +270,14 @@ VERSION: 2013-1-22-11-48-00
 					<p>Learn how to expand your busines and make more sales the intelligent way now.<br />Send us your email address and one of our intrepid associates will get back to you shortly.</p>
 					<span>
 						<input type="text" placeholder="Your Email Address" />
-						<input class="button" type="button" value="Start Selling Better!" />
+						<input class="button" type="button" value="Start Selling Better Now!" />
 					</span>
-				</div>
-			</section>
-			<section class="barand_logo">
-				<div class="barand_logo_inner">
-					<div class="logos">
-						<img src="images/sports_world.png" alt="" />
-					</div>
-					<div class="logos">
-						<img src="images/night_point.png" alt="" />
-					</div>
-					<div class="logos">
-						<img src="images/zephir.png" alt="" />
-					</div>
 				</div>
 			</section>
 			<section class="partners">
 				<div class="partners_inner">
 					<div class="partners_desc">
-						<h5>PARTNERS</h5>
+						<h5>Partners</h5>
 						<p>We have partnered with these and many other companies to help you provide the best user experience possible to your customers</p>
 					</div>
 					<div class="partners_logoimage">
@@ -292,21 +289,21 @@ VERSION: 2013-1-22-11-48-00
 		<div id="mainContentArea">
 		</div>
 		
-		<footer>
-				<div class="footer">
-					<div class="footer_cols col1">
-						<h3>SHORT CUTS</h3>
-						<ul>
-							<li><a href="#">Company Information</a></li>
-							<li><a href="#">Blog</a></li>
-							<li><a href="#">Contact</a></li>
-							<li><a href="#">News & Press</a></li>
-							<li><a href="#">Legal</a></li>
-							<li><a href="#">Privacy</a></li>
-							<li><a href="#">Sitemap</a></li>
+	<footer>
+		<div class="footer">
+			<div class="footer_cols col1">
+				<h3>SHORT CUTS</h3>
+				<ul>
+					<li><a href="#">Company Information</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">News & Press</a></li>
+					<li><a href="#">Legal</a></li>
+					<li><a href="#">Privacy</a></li>
+					<li><a href="#">Sitemap</a></li>
 						</ul>
-					</div>
-					<div class="footer_cols col2">
+			</div>
+			<div class="footer_cols col2">
 						<h3>REGISTER FOR UPDATES</h3>
 						<p>Enter your email address for eCommerce specific news and anyCommerce product info</p>
 						<form>
@@ -322,8 +319,8 @@ VERSION: 2013-1-22-11-48-00
 								<input Class="button" type="button" value="Register" placeholder=""/>
 							</span>
 						</form>
-					</div>
-					<div class="footer_cols col3">
+			</div>
+			<div class="footer_cols col3">
 						<h3>KEEP UP WITH <img src="images/logo.png" alt="" /></h3>
 						<div class="social_icon">
 							<span>
@@ -335,22 +332,22 @@ VERSION: 2013-1-22-11-48-00
 								<p>Follow Us</p>
 							</span>
 						</div>
-					</div>
-					<div class="footer_cols col4">
-						<h3>QUESTIONS</h3>
-						<p>For Service or product questions, please call us at 877,966,8948 ext 2.
-						<br />
-						<br />
-						Technical assistance for current customers can call us at 877,966,8948 or <font style="color:#fff;">click here</font> to submit a ticket.
-						<br />
-						<br />
-						Please <font style="color:#fff;">click here</font> for employment opportunitties.
-						</p>
-					</div>
-				</div>
-				<div class="copyright">&copy; 2012 Zoovy, Inc. All right reserved. All symbols and logos are the property of their respective owners.</div>
-		</footer>
-		
+			</div>
+			<div class="footer_cols col4">
+				<h3>QUESTIONS</h3>
+					<p>For Service or product questions, please call us at 877,966,8948 ext 2.
+					<br />
+					<br />
+					Technical assistance for current customers can call us at 877,966,8948 or <font style="color:#fff;">click here</font> to submit a ticket.
+					<br />
+					<br />
+					Please <font style="color:#fff;">click here</font> for employment opportunitties.
+					</p>
+			</div>		
+		</div>
+		<div class="copyright">&copy; 2012 Zoovy, Inc. All right reserved. All symbols and logos are the property of their respective owners.</div>
+	</footer>
+			
 		<div id="templates" style="display:none;">
 
 		</div>
