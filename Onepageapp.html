@@ -3,11 +3,12 @@
 <head>
 <!--
 
-VERSION: 2013-1-22-11-48-00
+VERSION: 2013-1-22-15-57-00
 
 -->
 	<meta charset="utf-8">
 	
+		<link href="style.css" rel="stylesheet" type="text/css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	
 	<script type="text/javascript">
@@ -162,15 +163,7 @@ VERSION: 2013-1-22-11-48-00
 		//}, 5000);
 	</script>
 </head>
-
-<Html>
-	<head>
-		<title>anyCommerce</title>
-		<link href="style.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript" src="js/html5.js"></script>
-	</head>
-
-	<body>
+<body>
 		<section class="wrapper">
 			<section class="top_sec">
 				<header>
@@ -188,7 +181,78 @@ VERSION: 2013-1-22-11-48-00
 						</ul>
 					</nav>
 				</header>
-				<div class="after_header">
+			
+		<div id="mainContentArea">
+		</div>
+		
+	<footer>
+		<div class="footer">
+			<div class="footer_cols col1">
+				<h3>SHORT CUTS</h3>
+				<ul>
+					<li><a href="#">Company Information</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">News & Press</a></li>
+					<li><a href="#">Legal</a></li>
+					<li><a href="#">Privacy</a></li>
+					<li><a href="#">Sitemap</a></li>
+						</ul>
+			</div>
+			<div class="footer_cols col2">
+						<h3>REGISTER FOR UPDATES</h3>
+						<p>Enter your email address for eCommerce specific news and anyCommerce product info</p>
+						<form>
+							<span>
+								<label>Email</label>
+								<input type="text" placeholder=""/>
+							</span>
+							<span>
+								<label>Full Name</label>
+								<input type="text" placeholder=""/>
+							</span>
+							<span>
+								<input Class="button" type="button" value="Register" placeholder=""/>
+							</span>
+						</form>
+			</div>
+			<div class="footer_cols col3">
+						<h3>KEEP UP WITH <img src="images/logo.png" alt="" /></h3>
+						<div class="social_icon">
+							<span>
+								<img src="images/fb_icon.png" />
+								<p>Become a Fan</p>
+							</span>
+							<span>
+								<img src="images/twitter_icon.png" />
+								<p>Follow Us</p>
+							</span>
+						</div>
+			</div>
+			<div class="footer_cols col4">
+				<h3>QUESTIONS</h3>
+					<p>For Service or product questions, please call us at 877,966,8948 ext 2.
+					<br />
+					<br />
+					Technical assistance for current customers can call us at 877,966,8948 or <font style="color:#fff;">click here</font> to submit a ticket.
+					<br />
+					<br />
+					Please <font style="color:#fff;">click here</font> for employment opportunitties.
+					</p>
+			</div>		
+		</div>
+		<div class="copyright">&copy; 2012 Zoovy, Inc. All right reserved. All symbols and logos are the property of their respective owners.</div>
+	</footer>
+			</section>
+			</section>
+	<div id="templates" style="display:none;">
+	
+	
+		<div id="home"> <!-- HomePage -->
+			<script type="text/javascript">
+				app.pageAlias["/"] = "home";
+			</script>
+			<div class="after_header">
 					<div class="left">
 						<h1>Sell Better</h1>
 						<p>Utilizing the freedom and flexibility of an app-bassed structure and the versatility of the Data Fair, along with ground-breaking new sales and marketing technologies, anyCommerce is positioned to enable your store to sell more and sell better.</p>
@@ -285,72 +349,9 @@ VERSION: 2013-1-22-11-48-00
 					</div>
 				</div>
 			</section>
-			
-		<div id="mainContentArea">
 		</div>
 		
-	<footer>
-		<div class="footer">
-			<div class="footer_cols col1">
-				<h3>SHORT CUTS</h3>
-				<ul>
-					<li><a href="#">Company Information</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">Contact</a></li>
-					<li><a href="#">News & Press</a></li>
-					<li><a href="#">Legal</a></li>
-					<li><a href="#">Privacy</a></li>
-					<li><a href="#">Sitemap</a></li>
-						</ul>
-			</div>
-			<div class="footer_cols col2">
-						<h3>REGISTER FOR UPDATES</h3>
-						<p>Enter your email address for eCommerce specific news and anyCommerce product info</p>
-						<form>
-							<span>
-								<label>Email</label>
-								<input type="text" placeholder=""/>
-							</span>
-							<span>
-								<label>Full Name</label>
-								<input type="text" placeholder=""/>
-							</span>
-							<span>
-								<input Class="button" type="button" value="Register" placeholder=""/>
-							</span>
-						</form>
-			</div>
-			<div class="footer_cols col3">
-						<h3>KEEP UP WITH <img src="images/logo.png" alt="" /></h3>
-						<div class="social_icon">
-							<span>
-								<img src="images/fb_icon.png" />
-								<p>Become a Fan</p>
-							</span>
-							<span>
-								<img src="images/twitter_icon.png" />
-								<p>Follow Us</p>
-							</span>
-						</div>
-			</div>
-			<div class="footer_cols col4">
-				<h3>QUESTIONS</h3>
-					<p>For Service or product questions, please call us at 877,966,8948 ext 2.
-					<br />
-					<br />
-					Technical assistance for current customers can call us at 877,966,8948 or <font style="color:#fff;">click here</font> to submit a ticket.
-					<br />
-					<br />
-					Please <font style="color:#fff;">click here</font> for employment opportunitties.
-					</p>
-			</div>		
-		</div>
-		<div class="copyright">&copy; 2012 Zoovy, Inc. All right reserved. All symbols and logos are the property of their respective owners.</div>
-	</footer>
-			
-		<div id="templates" style="display:none;">
-
-		</div>
+	</div>
 
 <script type="text/javascript">
 
