@@ -41,6 +41,7 @@
 /* --- General CSS ends here --- */
 
 /* --- We're Different CSS starts here --- */
+
 .wer_differnt{
 	float:left;
 	width:100%;
@@ -61,11 +62,9 @@
 }
 .wer_differnt span.old_way p{
 	width:50%;
-	float: left;
 }
 .wer_differnt span.old_way img{
 	float:right;
-	width: 49%;
 }
 .wer_differnt span.apps{
 	float:left;
@@ -109,9 +108,11 @@
 	margin: 7px 0 0 10px;
 	border:none;
 }
+
 /* --- We're Different CSS ends here --- */
 
-/* --- Services CSS starts here --- */
+/* --- Services Main CSS starts here --- */
+
 .services_app{
 	float:left;
 	width:100%;
@@ -209,13 +210,527 @@
 	padding:0 0 20px 0;
 }
 
-/* --- Services CSS ends here --- */
+/* --- Services Main CSS ends here --- */
+
+/* --- Building Apps CSS starts here --- */
+
+.build_apps{
+	float:left;
+	width:100%;
+}
+.build_apps h3{
+}
+.build_apps p{
+}
+.web_icons{
+	float: left;
+    padding: 0 100px 20px;
+    width: 400px;
+}
+.icons_img{
+	float:left;
+}
+.icons_img a.design{
+	float:left;
+	background:url(../images/service_path.png);
+	width:102px;
+	height:106px;
+}
+.icons_img span.arrow{
+	background: url("../images/service_path.png") repeat scroll 146px 0 transparent;
+    float: left;
+    height: 106px;
+    width: 44px;
+}
+.icons_img span.arrow1{
+	background: url("../images/service_path.png") repeat scroll 145px 0 transparent;
+    float: left;
+    height: 106px;
+    width: 44px;
+}
+.icons_img a.develop{
+	float:left;
+	background: url("../images/service_path.png") repeat scroll -145px 0 transparent;
+	width:102px;
+	height:106px;
+}
+.icons_img a.test{
+	float:left;
+	background: url("../images/service_path.png") repeat scroll -290px 0 transparent;
+	width:102px;
+	height:106px;
+}
+.icons_name{
+	float:left;
+}
+.icons_name a.design{
+	color: rgb(0, 0, 0);
+    float: left;
+    font-family: cabin,sans-serif;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    width:106px;
+	font-size:13px;
+	line-height: 1.2;
+}
+.icons_name a.design:hover{
+	color: rgb(0, 93, 134);
+    font-weight: bold;
+    text-decoration: none;
+}
+.icons_name a.develop{
+	color: rgb(0, 0, 0);
+    float: left;
+    font-family: cabin,sans-serif;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    width: 192px;
+	font-size:13px;
+	line-height: 1.2;
+}
+.icons_name a.develop:hover{
+	color: rgb(0, 93, 134);
+    font-weight: bold;
+    text-decoration: none;
+}
+.icons_name a.test{
+	color: rgb(0, 0, 0);
+    float: left;
+    font-family: cabin,sans-serif;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    width:82px;
+	font-size:13px;
+	line-height: 1.2;
+}
+.icons_name a.test:hover{
+	color: rgb(0, 93, 134);
+    font-weight: bold;
+    text-decoration: none;
+}
+.process{
+	float: left;
+    padding: 0 170px 20px;
+    width: 340px;
+}
+.process h1{
+	color:rgb(0, 93, 134);
+	font-family: 'Puritan', sans-serif;
+    font-size: 23px;
+    font-weight: 400;
+	line-height: 1.35;
+	float:left;
+	margin:0;
+}
+.process img{
+	margin: 8px 0 0 10px;
+}
+.process a{
+	color: rgb(0, 93, 134);
+    float: left;
+    font-family: 'Puritan', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.35;
+    margin: 3px 0 0;
+    text-decoration: none;
+}
+.process a:hover{
+	color: rgb(136, 206, 222);
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+/* --- Building Apps CSS ends here --- */
+
+/* --- Building Apps Design CSS starts here --- */
+
+.icons_img a.design_active{
+	float:left;
+	background:url(../images/service_path_des.png);
+	width:102px;
+	height:106px;
+}
+.icons_img a.develop_nonactive{
+	float:left;
+	background: url("../images/service_path_des.png") repeat scroll -145px 0 transparent;
+	width:102px;
+	height:106px;
+}
+.icons_img a.test_nonactive{
+	float:left;
+	background: url("../images/service_path_des.png") repeat scroll -290px 0 transparent;
+	width:102px;
+	height:106px;
+}
+.icons_img span.arrow1_nonactive{
+	background: url("../images/service_path_des.png") repeat scroll 145px 0 transparent;
+    float: left;
+    height: 106px;
+    width: 44px;
+}
+.developer_take{
+	float: left;
+    padding: 0 165px 20px;
+    width: 340px;
+}
+.developer_take h1{
+	color:rgb(0, 93, 134);
+	font-family: 'Puritan', sans-serif;
+    font-size: 23px;
+    font-weight: 400;
+	line-height: 1.35;
+	float:left;
+	margin:0;
+}
+.developer_take img{
+	margin: 8px 0 0 10px;
+}
+.developer_take a{
+    text-decoration: none;
+	color:rgb(0, 93, 134);
+}
+.developer_take a:hover{
+	color: rgb(136, 206, 222);
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+/* --- Building Apps Design CSS ends here --- */
+
+/* --- Building Apps Development CSS starts here --- */
+
+.icons_img a.design_nonactive{
+	float:left;
+	background:url(../images/service_path_dev.png);
+	width:102px;
+	height:106px;
+}
+.icons_img a.develop_active{
+	float:left;
+	background: url("../images/service_path_dev.png") repeat scroll -145px 0 transparent;
+	width:102px;
+	height:106px;
+}
+.icons_img a.test_nonactive{
+	float:left;
+	background: url("../images/service_path_dev.png") repeat scroll -290px 0 transparent;
+	width:102px;
+	height:106px;
+}
+.icons_img span.arrow_nonactive{
+	background: url("../images/service_path_dev.png") repeat scroll 286px 0 transparent;
+    float: left;
+    height: 106px;
+    width: 44px;
+}
+
+.test_app{
+	float: left;
+    padding: 0 185px 20px;
+    width: 340px;
+}
+.test_app h1{
+	color:rgb(0, 93, 134);
+	font-family: 'Puritan', sans-serif;
+    font-size: 23px;
+    font-weight: 400;
+	line-height: 1.35;
+	float:left;
+	margin:0;
+}
+.test_app img{
+	margin: 8px 0 0 10px;
+}
+.test_app a{
+    text-decoration: none;
+	color:rgb(0, 93, 134);
+}
+.test_app a:hover{
+	color: rgb(136, 206, 222);
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+/* --- Building Apps Development CSS ends here --- */
+
+/* --- Building Apps  Testing CSS starts here --- */
+
+.icons_img a.design_nonactive{
+	float:left;
+	background:url(../images/service_path_tes.png);
+	width:102px;
+	height:106px;
+}
+.icons_img a.develop_nonactive{
+	float:left;
+	background: url("../images/service_path_tes.png") repeat scroll -145px 0 transparent;
+	width:102px;
+	height:106px;
+}
+.icons_img a.test_active{
+	float:left;
+	background: url("../images/service_path_tes.png") repeat scroll -286px 0 transparent;
+	width:102px;
+	height:106px;
+}
+.icons_img span.arrow_nonactive{
+	background: url("../images/service_path_tes.png") repeat scroll 286px 0 transparent;
+    float: left;
+    height: 106px;
+    width: 44px;
+}
+.icons_img span.arrow1_nonactive{
+	background: url("../images/service_path_tes.png") repeat scroll 286px 0 transparent;
+    float: left;
+    height: 106px;
+    width: 44px;
+}
+.build_apps p a{
+	color: rgb(241, 90, 36);
+    text-decoration: none;
+}
+.build_apps p a:hover{
+	color: rgb(136, 206, 222);
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+.qoutes{
+	float:left;
+	width:100%;
+	text-align:center;
+	padding: 0 0 15px;
+}
+.qoutes h1{
+	color: rgb(241, 90, 36);
+    font-size: 19px;
+	font-family: 'Puritan', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+	margin:0;
+}
+.qoutes p{
+	color: rgb(127, 127, 127);
+    font-family: 'Puritan', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+	font-size: 13px;
+	margin:0;
+	text-align:center;
+	float:none;
+}
+
+/* --- Building Apps Testing CSS ends here --- */
+
+/* --- Live Training CSS starts here --- */
+
+.live_support{
+	float:left;
+	width:100%;
+	min-height:285px;
+}
+.live_support span p{	
+}
+
+.live_support span.live training{
+	float:left;
+}
+.live_support span.live sched {
+	width:50%;
+}
+.live_support span.usa based {
+	width:50%;
+}
+.live_support span.support list {
+	width:50%;
+}
+
+/* --- Live Training CSS ends here --- */
+
+/* --- MPO Developmemt CSS starts here --- */
+.mpo{
+	float:left;
+	width:194px;
+}
+.mpo img{
+	margin: 20px 0 0;
+}
+/* --- MPO Development Apps CSS ends here --- */
+
 /* --- Features CSS starts here --- */
 
+.features_main{
+	float:left;
+	width:100%;
+	padding: 0 0 15px;
+}
+.features_main h3{
+}
+.features_main p{
+}
+.features_main h4{
+	color: rgb(0, 93, 134);
+    font-family: 'Puritan', sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.4;
+    padding: 0;
+	margin:0;
+	float:left;
+}
+.feature_head{
+	float:left;
+	margin: 15px 0 0;
+}
+.feature_head h4{
+	color: rgb(0, 93, 134);
+    font-family: 'Puritan', sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.4;
+    padding: 0;
+	margin:0;
+}
+.feature_head span.nonblock{
+	width:100%;
+	float:left;
+}
+.feature_head span.nonblock a{
+	float:left;
+    padding: 0;
+	margin:0;
+	font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+    font-size: 11px;
+    font-style: italic;
+	color: #F15A24;
+    text-decoration: none;
+}
+.feature_head span.nonblock a:hover{
+	color: rgb(136, 206, 222);
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+.feature_head ul{
+	float:left;
+    padding: 0;
+	margin:0 0 0 14px;
+}
+.feature_head ul li{
+	float:left;
+    padding: 0;
+	margin:0;
+	font-size: 11px;
+	font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+	line-height: 1.2;
+    text-align: left;
+	width:100%;
+}
+.feature_head p{
+	float:left;
+    padding: 0;
+	margin:0;
+	font-size: 11px;
+	font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+	line-height: 1.2;
+    text-align: left;
+}
+.feature_ebay{
+	float:left;
+	width:100%;
+	min-height:285px;
+}
+.feature_amazon{
+	float:left;
+	width:100%;
+	min-height:285px;
+}
+.feature_market{
+	float:left;
+	width:100%;
+	padding: 0 0 15px;
+}
+.feature_market h3{
+}
+.feature_market p{
+}
 
 /* --- Features CSS ends here --- */
-/* --- Partner CSS starts here --- */
 
+/* --- Feature Order Manager CSS starts here --- */
+
+.order_manage{
+	float:left;
+	width:100%;
+	padding: 0 0 15px;
+}
+.order_manage h3{
+}
+.order_manage p{
+}
+.order_head {
+	float:left;
+	margin: 15px 0 0;
+}
+.order_head h4{
+	color: rgb(0, 93, 134);
+    font-family: 'Puritan', sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.4;
+    padding: 0;
+	margin:0;
+}
+.order_head ul{
+	float:left;
+    padding: 0;
+	margin:0 0 0 14px;
+}
+.order_head ul li{
+	float:left;
+    padding: 0;
+	margin:0;
+	font-family: abel,sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.35;
+    text-align: justify;
+	width:100%;
+}
+
+/* --- Features Order Manager CSS ends here*/
+
+/* --- Features Multi Stores CSS starts here*/
+
+.multistores{
+	float:left;
+	width:100%;
+	padding: 0 0 15px;
+}
+.multistores h3{
+}
+.multistores h4{
+	color: rgb(0, 93, 134);
+    font-family: 'Puritan', sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.4;
+    padding: 0;
+	margin:0;
+}
+.multistores p{
+}
+
+/* --- Features Multi Stores CSS ends here --- */
+
+/* --- Partner CSS starts here --- */
 .partnerContainer {
 	width:600px;
 	margin: 20px 0px;
@@ -232,3 +747,12 @@
 	display: inline-block;
 }
 /* Partner CSS ends here */
+
+
+
+
+
+
+.clear {
+	clear: both;
+}
