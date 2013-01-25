@@ -3,21 +3,6 @@
 	width:600px;
 	padding:0 180px;
 }
-.partnerContainer {
-	width:600px;
-	margin: 20px 0px;
-}
-.partnerImage {
-	text-align: left;
-	height: 30px;
-	width: 29%;
-	display: inline-block;
-}
-.partnerText{
-	width: 70%;
-	height:30px;
-	display: inline-block;
-}
 .container h3{
 	color: rgb(0, 93, 134);
     font-family: 'Puritan', sans-serif;
@@ -53,3 +38,197 @@
     padding: 0;
 	margin: 10px 0 0;
 }
+/* --- General CSS ends here --- */
+
+/* --- We're Different CSS starts here --- */
+.wer_differnt{
+	float:left;
+	width:100%;
+}
+.wer_differnt span h4{	
+	color: rgb(0, 93, 134);
+    font-family: 'Puritan', sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.4;
+    padding: 0;
+	margin: 10px 0 0;
+}
+.wer_differnt span p{	
+}
+.wer_differnt span.old_way{
+	float:left;
+}
+.wer_differnt span.old_way p{
+	width:50%;
+	float: left;
+}
+.wer_differnt span.old_way img{
+	float:right;
+	width: 49%;
+}
+.wer_differnt span.apps{
+	float:left;
+}
+.wer_differnt span.apps_provide{
+	float:left;
+}
+.wer_differnt span.apps_provide p{
+	font-size: 13px; 
+	padding-left: 13px;
+}
+.wer_differnt span.everything{
+	float:left;
+}
+.review_srvcs{
+	float:left;
+	padding: 0 143px;
+	min-height: 88px;
+}
+.review_srvcs a{
+	float:left;
+	text-decoration:none;
+}
+.review_srvcs a h1{
+	color:rgb(0, 93, 134);
+	font-family: 'Puritan', sans-serif;
+    font-size: 23px;
+    font-weight: 400;
+	line-height: 1.35;
+	float:left;
+	margin:0;
+}
+.review_srvcs a h1:hover{
+	color: rgb(136, 206, 222);
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+.review_srvcs a img{
+	float:left;
+	margin: 7px 0 0 10px;
+	border:none;
+}
+/* --- We're Different CSS ends here --- */
+
+/* --- Services CSS starts here --- */
+.services_app{
+	float:left;
+	width:100%;
+}
+.services_app h3{
+}
+.services_app p{
+}
+.develop_apps{
+	float:left;
+	width:100%;
+}
+.develop_apps h3{
+	color: rgb(0, 93, 134);
+    font-family: 'Puritan', sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.4;
+    margin: 10px 0 5px;
+    padding: 0;
+}
+.develop_apps p{
+	font-family: abel,sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.35;
+    padding: 0;
+    text-align: justify;
+	margin:0;
+}
+.develop_apps span.descrptn{
+	float:left;
+	width:52.4%;
+}
+.develop_apps span.descrptn p{
+	font-family: abel,sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.35;
+    padding: 0;
+    text-align: justify;
+	margin:0;
+}
+.develop_apps span.des_icons{
+	float:right;
+}
+.develop_apps span.des_icons a{
+	float:left;
+	margin:0 10px 0 0;
+}
+.develop_apps span.des_icons a img{
+	width:253px;
+	border:none;
+}
+.develop_apps span.learn_here {
+	float:left;
+	width:100%;
+}
+.develop_apps span.learn_here img {
+	float: left;
+    margin: 10px 7px 0 0;
+    width: 8px;
+}
+.develop_apps span.learn_here p {
+	color: rgb(241, 90, 36);
+    text-decoration: none;
+	font-family: 'Puritan', sans-serif;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 2;
+    text-align: justify;
+	float:left;
+}
+.develop_apps span.learn_here a {
+	color: rgb(241, 90, 36);
+    text-decoration: none;
+	font-family: 'Puritan', sans-serif;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 2;
+    text-align: justify;
+	float:left;
+}
+.develop_apps span.learn_here a:hover{
+	color: rgb(136, 206, 222);
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+.consultation{
+	float:left;
+	width:100%;
+	padding:0 0 20px 0;
+}
+
+/* --- Services CSS ends here --- */
+/* --- Features CSS starts here --- */
+
+
+/* --- Features CSS ends here --- */
+/* --- Partner CSS starts here --- */
+
+.partnerContainer {
+	width:600px;
+	margin: 20px 0px;
+}
+.partnerImage {
+	text-align: left;
+	height: 30px;
+	width: 29%;
+	display: inline-block;
+}
+.partnerText{
+	width: 70%;
+	height:30px;
+	display: inline-block;
+}
+/* Partner CSS ends here */
