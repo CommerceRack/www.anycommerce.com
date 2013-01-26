@@ -731,6 +731,10 @@
 /* --- Features Multi Stores CSS ends here --- */
 
 /* --- Partner CSS starts here --- */
+.resize{
+    width:80px; 
+    height:25px;
+}
 .partnerContainer {
 	width:600px;
 	margin: 20px 0px;
