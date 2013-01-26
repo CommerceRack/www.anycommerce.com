@@ -174,12 +174,66 @@ VERSION: 2013-1-22-15-57-00
 					<nav class="access">
 						<ul>
 							<li class="first"><a href="#!/different.html">We're Different</a></li>
-							<li><a href="#!/services.html">Services</a></li>
-							<li><a href="#!/features.html">Features</a></li>
+							<li><a href="#!/services.html" onMouseOver="showDropDown($('#servicesDropDown'));" onMouseOut="hideDropDown($('#servicesDropDown'));">Services</a></li>
+							<li><a href="#!/features.html" onMouseOver="showDropDown($('#featuresDropDown'));" onMouseOut="hideDropDown($('#featuresDropDown'));">Features</a></li>
 							<li><a href="#!/partners.html">Partners</a></li>
 							<li><a href="http://www.zoovy.com/biz/app/admin.html?show=acreate">Sign me up!</a></li>
 							<li class="last"><a href="https://www.anycommerce.com/biz/app/admin.html">Login</a></li>
 						</ul>
+						<div id="servicesDropDown" class="dropdown" onMouseOver="showDropDown($(this));" onMouseOut="hideDropDown($(this));">
+							<ul>
+								<li onMouseOver="showDropDown($('#servicesTier2DropDown'));" onMouseOut="hideDropDown($('#servicesTier2DropDown'));">Building Apps</li>
+								<li>Live Training &amp; Support</li>
+								<li>Marketing Development</li>
+								<li>Marketplace Optimization</li>
+							</ul>
+						</div>
+						<div id="servicesTier2DropDown" class="tier2dropdown" onMouseOver="showDropDown($(this)); showDropDown($('#servicesDropDown'));" onMouseOut="hideDropDown($(this));  hideDropDown($('#servicesDropDown'));">
+							<ul>
+								<li>Design</li>
+								<li>Development</li>
+								<li>Testing</li>
+							</ul>
+						</div>
+						<div id="featuresDropDown" class="dropdown" onMouseOver="showDropDown($(this));" onMouseOut="hideDropDown($(this));">
+							<ul>
+								<li>Amazon</li>
+								<li>eBay</li>
+								<li>Order Management</li>
+								<li>Marketplaces</li>
+								<li>Comparison Shopping</li>
+								<li>Multiple Stores</li>
+								<li>Wholesale/Supply Chain</li>
+							</ul>
+						</div>
+						
+						<script type="text/javascript">
+							$("#servicesDropDown").data("timer",null);
+							$("#servicesTier2DropDown").data("timer",null);
+							$("#featuresDropDown").data("timer",null);
+							
+							var showDropDown = function($dropdown){
+								//console.log("showing: "+$dropdown.attr("id"));
+								
+								if($dropdown.data("timer") !== null){
+									clearTimeout($dropdown.data("timer"));
+									$dropdown.data("timer", null);
+								} else {
+									if($dropdown.hasClass("dropdown"))
+										$(".dropdown").each(function(){
+											if($(this).attr("id") !== $dropdown.attr("id"))
+												$(this).hide();
+										});
+									$dropdown.fadeIn(500);
+								}
+							}
+							
+							var hideDropDown = function($dropdown){
+								//console.log("hiding: "+$dropdown.attr("id"));
+								$dropdown.data("timer" ,setTimeout(function(){$dropdown.fadeOut(500); $dropdown.data("timer", null);},500));
+							}
+						</script>
+						
 					</nav>
 				</header>
 			
@@ -288,6 +342,7 @@ VERSION: 2013-1-22-15-57-00
 							</span>
 						</div>
 					</div>
+					<div class="clear"></div>
 				</div>
 			</section>
 			<section class="grass"></section>
