@@ -174,28 +174,28 @@ VERSION: 2013-1-22-15-57-00
 					<nav class="access">
 						<ul>
 							<li class="first"><a href="#!/different.html">We're Different</a></li>
-							<li><a href="#!/services.html" onMouseOver="showDropDown($('#servicesDropDown'));" onMouseOut="hideDropDown($('#servicesDropDown'));">Services</a></li>
-							<li><a href="#!/features.html" onMouseOver="showDropDown($('#featuresDropDown'));" onMouseOut="hideDropDown($('#featuresDropDown'));">Features</a></li>
+							<li><a href="#!/services.html" id="servicesLink" onMouseOver="showDropDown($('#servicesDropDown'), $(this));" onMouseOut="hideDropDown($('#servicesDropDown'), $(this));">Services</a></li>
+							<li><a href="#!/features.html" id="featuresLink" onMouseOver="showDropDown($('#featuresDropDown'), $(this));" onMouseOut="hideDropDown($('#featuresDropDown'), $(this));">Features</a></li>
 							<li><a href="#!/partners.html">Partners</a></li>
 							<li><a href="http://www.zoovy.com/biz/app/admin.html?show=acreate">Sign me up!</a></li>
 							<li class="last"><a href="https://www.anycommerce.com/biz/app/admin.html">Login</a></li>
 						</ul>
-						<div id="servicesDropDown" class="dropdown" onMouseOver="showDropDown($(this));" onMouseOut="hideDropDown($(this));">
+						<div id="servicesDropDown" class="dropdown" onMouseOver="showDropDown($(this), $('#servicesLink'));" onMouseOut="hideDropDown($(this), $('#servicesLink'));">
 							<ul>
-								<li onMouseOver="showDropDown($('#servicesTier2DropDown'));" onMouseOut="hideDropDown($('#servicesTier2DropDown'));"><a href="#!/building-apps.html">Building Apps</a></li>
+								<li onMouseOver="showDropDown($('#servicesTier2DropDown'), $('#servicesLink'));" onMouseOut="hideDropDown($('#servicesTier2DropDown'), $('#servicesLink'));"><a href="#!/building-apps.html">Building Apps</a></li>
 								<li><a href="#!/live-training-support.html">Live Training &amp; Support</a></li>
 								<li><a href="#!/marketing-development.html">Marketing Development</a></li>
 								<li><a href="#!/marketplace-optimization.html">Marketplace Optimization</a></li>
 							</ul>
 						</div>
-						<div id="servicesTier2DropDown" class="tier2dropdown" onMouseOver="showDropDown($(this)); showDropDown($('#servicesDropDown'));" onMouseOut="hideDropDown($(this));  hideDropDown($('#servicesDropDown'));">
+						<div id="servicesTier2DropDown" class="tier2dropdown" onMouseOver="showDropDown($(this), $('#servicesLink')); showDropDown($('#servicesDropDown'), $('#servicesLink'));" onMouseOut="hideDropDown($(this), $('#servicesLink'));  hideDropDown($('#servicesDropDown'), $('#servicesLink'));">
 							<ul>
 								<li><a href="#!/building-apps-design.html">Design</a></li>
 								<li><a href="#!/building-apps-development.html">Development</a></li>
 								<li><a href="#!/building-apps-testing.html">Testing</a></li>
 							</ul>
 						</div>
-						<div id="featuresDropDown" class="dropdown" onMouseOver="showDropDown($(this));" onMouseOut="hideDropDown($(this));">
+						<div id="featuresDropDown" class="dropdown" onMouseOver="showDropDown($(this), $('#featuresLink'));" onMouseOut="hideDropDown($(this), $('#featuresLink'));">
 							<ul>
 								<li><a href="#!/features-amazon.html">Amazon</a></li>
 								<li><a href="#!/features-ebay.html">eBay</a></li>
@@ -212,9 +212,9 @@ VERSION: 2013-1-22-15-57-00
 							$("#servicesTier2DropDown").data("timer",null);
 							$("#featuresDropDown").data("timer",null);
 							
-							var showDropDown = function($dropdown){
+							var showDropDown = function($dropdown, $menuItem){
 								//console.log("showing: "+$dropdown.attr("id"));
-								
+								$menuItem.addClass('hover');
 								if($dropdown.data("timer") !== null){
 									clearTimeout($dropdown.data("timer"));
 									$dropdown.data("timer", null);
@@ -228,9 +228,9 @@ VERSION: 2013-1-22-15-57-00
 								}
 							}
 							
-							var hideDropDown = function($dropdown){
+							var hideDropDown = function($dropdown, $menuItem){
 								//console.log("hiding: "+$dropdown.attr("id"));
-								$dropdown.data("timer" ,setTimeout(function(){$dropdown.fadeOut(500); $dropdown.data("timer", null);},500));
+								$dropdown.data("timer" ,setTimeout(function(){$menuItem.removeClass('hover');$dropdown.fadeOut(500); $dropdown.data("timer", null);},500));
 							}
 						</script>
 						
@@ -418,9 +418,11 @@ VERSION: 2013-1-22-15-57-00
 				<div class="wer_differnt">
 					<h3>We're Different</h3>
 					<span class="old_way">
-						<h4>The Old Way</h4>
 						<img src="images/different_img.png"/>
-						<p>In the past, one of the biggest challenges in growing a successful online business was choosing the appropriate technology for your business needs. For many, it was a difficult choice because merchants had to do it first, locking them into the way that technology worked, not the way the merchant wanted to. Merchants soon found that the solution they chose was either too limited to allow them to grow, or too complicated to get up and running efficiently.<br/><br/>
+						<h4>The Old Way</h4>
+						<p>In the past, one of the biggest challenges in growing a successful online business was choosing the appropriate technology for your business needs. For many, it was a difficult choice because merchants had to do it first, locking them into the way that technology worked, not the way the merchant wanted to. Merchants soon found that the solution they chose was either too limited to allow them to grow, or too complicated to get up and running efficiently.
+						</p>
+						<p>
 						Being locked in to a specific, one-size fits all technology was not very conducive to businesses that needed to set themselves apart and do things differently. They soon found that if they wanted to grow, they would need to spend a lot of time, resources and money to take the next big jump. 
 						</p>
 					</span>
