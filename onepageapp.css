@@ -10,14 +10,13 @@ header > nav .dropdown {
 }
 
 .dropdown > ul,  .tier2dropdown > ul{
-    float: left;
-    list-style: none outside none;
-    margin: 0;
-    padding: 0;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
 }
 .dropdown > ul > li,  .tier2dropdown > ul > li{
-    display: inline;
-    padding: 0;
+    display: inline-block;
+    padding: 0px;
 }
 
 header > nav .tier2dropdown {
@@ -265,31 +264,31 @@ header > nav .tier2dropdown {
 }
 .icons_img a.design{
 	float:left;
-	background:url(../images/service_path.png);
+	background:url(images/service_path.png);
 	width:102px;
 	height:106px;
 }
 .icons_img span.arrow{
-	background: url("../images/service_path.png") repeat scroll 146px 0 transparent;
+	background: url("images/service_path.png") repeat scroll 146px 0 transparent;
     float: left;
     height: 106px;
     width: 44px;
 }
 .icons_img span.arrow1{
-	background: url("../images/service_path.png") repeat scroll 145px 0 transparent;
+	background: url("images/service_path.png") repeat scroll 145px 0 transparent;
     float: left;
     height: 106px;
     width: 44px;
 }
 .icons_img a.develop{
 	float:left;
-	background: url("../images/service_path.png") repeat scroll -145px 0 transparent;
+	background: url("images/service_path.png") repeat scroll -145px 0 transparent;
 	width:102px;
 	height:106px;
 }
 .icons_img a.test{
 	float:left;
-	background: url("../images/service_path.png") repeat scroll -290px 0 transparent;
+	background: url("images/service_path.png") repeat scroll -290px 0 transparent;
 	width:102px;
 	height:106px;
 }

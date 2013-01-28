@@ -61,39 +61,29 @@ header > nav.access > ul > li.first a, header > nav > ul > li.last a{
     font-family: 'BenchNine', sans-serif;
     font-size: 18px;
     font-weight: 400;
-    padding: 0px 0 ;
+    padding: 0px 0px;
     text-align: center;
-    text-indent: -1em;
     text-decoration: none;
-    width: 112px;
 }
+.access > ul li a {
+    width: 112px;
+	position:relative;
+	left:-8px;
+}
+
 .access a:hover {
     color: #E24B2C;
 }
-.dropdown a {
+.dropdown a, .tier2dropdown a {
     color: #E24B2C;
-    float: left;
-    font-family: 'BenchNine', sans-serif;
     font-size: 16px;
     font-weight: 400;
-    padding: 0px 0 ;
     text-align: center;
-    text-indent: -1em;
     text-decoration: none;
-    width: 150px;
+	display: inline-block;
+	margin-right: 20px;
 }
-.tier2dropdown a {
-    color: #E24B2C;
-    float: left;
-    font-family: 'BenchNine', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    padding: 0px 0 ;
-    text-align: center;
-    text-indent: -1em;
-    text-decoration: none;
-    width: 150px;
-}
+
 .after_header{
 	margin: 0px auto;
     padding:0;

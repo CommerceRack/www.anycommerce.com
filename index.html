@@ -3,7 +3,7 @@
 <head>
 <!--
 
-VERSION: 2013-1-22-15-57-00
+VERSION: 2013-1-28-13-12-00
 
 -->
 	<meta charset="utf-8">
@@ -232,6 +232,7 @@ VERSION: 2013-1-22-15-57-00
 								//console.log("hiding: "+$dropdown.attr("id"));
 								$dropdown.data("timer" ,setTimeout(function(){$menuItem.removeClass('hover');$dropdown.fadeOut(500); $dropdown.data("timer", null);},500));
 							}
+							$("header > nav .dropdown").hide();
 						</script>
 						
 					</nav>
@@ -1118,10 +1119,12 @@ VERSION: 2013-1-22-15-57-00
 						<div class="partnerImage"><img src="images/partners/authorizenet.png"/></div>
 						<div class="partnerText">Authorize.Net offers secure, scalable solutions that enable merchants to process unlimited transactions from anywhere in the world in multiple currencies. Our solutions support any business model.</div>
 					</div>
+					<!-- Image is missing? Removed from current site
 					<div class ="partnerContainer">
 						<div class="partnerImage"><img src="images/partners/atlastfulfillment"/></div>
 						<div class="partnerText">Leading provider of innovative outsourcing solutions for warehousing and fulfillment with leading-edge technology infrastructure to support eCommerce companies.</div>
 					</div>
+					-->
 					<div class ="partnerContainer">
 						<div class="partnerImage"><img src="images/partners/doba.gif"/></div>
 						<div class="partnerText">Drop Shipping. Simplified.™ Instant access to millions of wholesale products, drop–shipped directly to your customers. </div>
