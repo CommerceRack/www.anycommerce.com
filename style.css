@@ -70,6 +70,30 @@ header > nav.access > ul > li.first a, header > nav > ul > li.last a{
 .access a:hover {
     color: #E24B2C;
 }
+.dropdown a {
+    color: #E24B2C;
+    float: left;
+    font-family: 'BenchNine', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 0px 0 ;
+    text-align: center;
+    text-indent: -1em;
+    text-decoration: none;
+    width: 150px;
+}
+.tier2dropdown a {
+    color: #E24B2C;
+    float: left;
+    font-family: 'BenchNine', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 0px 0 ;
+    text-align: center;
+    text-indent: -1em;
+    text-decoration: none;
+    width: 150px;
+}
 .after_header{
 	margin: 0px auto;
     padding:0;
