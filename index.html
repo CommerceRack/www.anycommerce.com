@@ -3,7 +3,7 @@
 <head>
 <!--
 
-VERSION: 2013-1-22-15-57-00
+VERSION: 2013-1-28-13-12-00
 
 -->
 	<meta charset="utf-8">
@@ -174,28 +174,28 @@ VERSION: 2013-1-22-15-57-00
 					<nav class="access">
 						<ul>
 							<li class="first"><a href="#!/different.html">We're Different</a></li>
-							<li><a href="#!/services.html" onMouseOver="showDropDown($('#servicesDropDown'));" onMouseOut="hideDropDown($('#servicesDropDown'));">Services</a></li>
-							<li><a href="#!/features.html" onMouseOver="showDropDown($('#featuresDropDown'));" onMouseOut="hideDropDown($('#featuresDropDown'));">Features</a></li>
+							<li><a href="#!/services.html" id="servicesLink" onMouseOver="showDropDown($('#servicesDropDown'), $(this));" onMouseOut="hideDropDown($('#servicesDropDown'), $(this));">Services</a></li>
+							<li><a href="#!/features.html" id="featuresLink" onMouseOver="showDropDown($('#featuresDropDown'), $(this));" onMouseOut="hideDropDown($('#featuresDropDown'), $(this));">Features</a></li>
 							<li><a href="#!/partners.html">Partners</a></li>
 							<li><a href="https://www.zoovy.com/app/latest/admin.html?show=acreate">Sign me up!</a></li>
 							<li class="last"><a href="https://www.anycommerce.com/app/latest/admin.html">Login</a></li>
 						</ul>
-						<div id="servicesDropDown" class="dropdown" onMouseOver="showDropDown($(this));" onMouseOut="hideDropDown($(this));">
+						<div id="servicesDropDown" class="dropdown" onMouseOver="showDropDown($(this), $('#servicesLink'));" onMouseOut="hideDropDown($(this), $('#servicesLink'));">
 							<ul>
-								<li onMouseOver="showDropDown($('#servicesTier2DropDown'));" onMouseOut="hideDropDown($('#servicesTier2DropDown'));"><a href="#!/building-apps.html">Building Apps</a></li>
+								<li onMouseOver="showDropDown($('#servicesTier2DropDown'), $('#servicesLink'));" onMouseOut="hideDropDown($('#servicesTier2DropDown'), $('#servicesLink'));"><a href="#!/building-apps.html">Building Apps</a></li>
 								<li><a href="#!/live-training-support.html">Live Training &amp; Support</a></li>
 								<li><a href="#!/marketing-development.html">Marketing Development</a></li>
 								<li><a href="#!/marketplace-optimization.html">Marketplace Optimization</a></li>
 							</ul>
 						</div>
-						<div id="servicesTier2DropDown" class="tier2dropdown" onMouseOver="showDropDown($(this)); showDropDown($('#servicesDropDown'));" onMouseOut="hideDropDown($(this));  hideDropDown($('#servicesDropDown'));">
+						<div id="servicesTier2DropDown" class="tier2dropdown" onMouseOver="showDropDown($(this), $('#servicesLink')); showDropDown($('#servicesDropDown'), $('#servicesLink'));" onMouseOut="hideDropDown($(this), $('#servicesLink'));  hideDropDown($('#servicesDropDown'), $('#servicesLink'));">
 							<ul>
 								<li><a href="#!/building-apps-design.html">Design</a></li>
 								<li><a href="#!/building-apps-development.html">Development</a></li>
 								<li><a href="#!/building-apps-testing.html">Testing</a></li>
 							</ul>
 						</div>
-						<div id="featuresDropDown" class="dropdown" onMouseOver="showDropDown($(this));" onMouseOut="hideDropDown($(this));">
+						<div id="featuresDropDown" class="dropdown" onMouseOver="showDropDown($(this), $('#featuresLink'));" onMouseOut="hideDropDown($(this), $('#featuresLink'));">
 							<ul>
 								<li><a href="#!/features-amazon.html">Amazon</a></li>
 								<li><a href="#!/features-ebay.html">eBay</a></li>
@@ -212,9 +212,9 @@ VERSION: 2013-1-22-15-57-00
 							$("#servicesTier2DropDown").data("timer",null);
 							$("#featuresDropDown").data("timer",null);
 							
-							var showDropDown = function($dropdown){
+							var showDropDown = function($dropdown, $menuItem){
 								//console.log("showing: "+$dropdown.attr("id"));
-								
+								$menuItem.addClass('hover');
 								if($dropdown.data("timer") !== null){
 									clearTimeout($dropdown.data("timer"));
 									$dropdown.data("timer", null);
@@ -228,10 +228,11 @@ VERSION: 2013-1-22-15-57-00
 								}
 							}
 							
-							var hideDropDown = function($dropdown){
+							var hideDropDown = function($dropdown, $menuItem){
 								//console.log("hiding: "+$dropdown.attr("id"));
-								$dropdown.data("timer" ,setTimeout(function(){$dropdown.fadeOut(500); $dropdown.data("timer", null);},500));
+								$dropdown.data("timer" ,setTimeout(function(){$menuItem.removeClass('hover');$dropdown.fadeOut(500); $dropdown.data("timer", null);},500));
 							}
+							$("header > nav .dropdown").hide();
 						</script>
 						
 					</nav>
@@ -418,9 +419,11 @@ VERSION: 2013-1-22-15-57-00
 				<div class="wer_differnt">
 					<h3>We're Different</h3>
 					<span class="old_way">
+						<img src="images/different_img.png"/>
 						<h4>The Old Way</h4>
-						<img src="images/different_img.jpg"/>
-						<p>In the past, one of the biggest challenges in growing a successful online business was choosing the appropriate technology for your business needs. For many, it was a difficult choice because merchants had to do it first, locking them into the way that technology worked, not the way the merchant wanted to. Merchants soon found that the solution they chose was either too limited to allow them to grow, or too complicated to get up and running efficiently.<br/><br/>
+						<p>In the past, one of the biggest challenges in growing a successful online business was choosing the appropriate technology for your business needs. For many, it was a difficult choice because merchants had to do it first, locking them into the way that technology worked, not the way the merchant wanted to. Merchants soon found that the solution they chose was either too limited to allow them to grow, or too complicated to get up and running efficiently.
+						</p>
+						<p>
 						Being locked in to a specific, one-size fits all technology was not very conducive to businesses that needed to set themselves apart and do things differently. They soon found that if they wanted to grow, they would need to spend a lot of time, resources and money to take the next big jump. 
 						</p>
 					</span>
@@ -667,7 +670,7 @@ VERSION: 2013-1-22-15-57-00
 					<h3>We're here to help</h3>
 					<span class="live training">
 						<h4>Live Training (by phone)</h4>
-						<p>Live training is provided for Zoovy merchants to assist in setup and ongoing guidance for successful use of the platform and software. Consultants are fully trained Zoovy employees. </p>
+						<p>Live training is provided for anyCommerce merchants to assist in setup and ongoing guidance for successful use of the platform and software. Consultants are fully trained anyCommerce employees. </p>
 						<ul>
 							<li>Store Settings</li>
 							<li>Shipping</li>
@@ -678,7 +681,7 @@ VERSION: 2013-1-22-15-57-00
 						</ul>
 				<p>Live training can be scheduled M-F and cost is dependent upon package.</p>
 				<h4>USA Based Tech Support</h4>
-				<p>Tech support is available 6am to 6pm PST, 6 days a week. Zoovy tech support is available through phone, help-desk platform, and live chat. All techs are fully trained on all aspects of Zoovy interface and integrations. </p>
+				<p>Tech support is available 6am to 6pm PST, 6 days a week. anyCommerce tech support is available through phone, help-desk platform, and live chat. All techs are fully trained on all aspects of anyCommerce interface and integrations. </p>
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -692,10 +695,8 @@ VERSION: 2013-1-22-15-57-00
 				<div class="live_support">
 					<h3><span style="font-size:28px;">Marketing dollars working as hard as they could be?</span></h3>
 					<span class="live training">
-					<p>Zoovy's marketing experts evaluate marketing efforts to ensure that an e-business's budget is being distributed to the best possible areas. </p>
-					<p>Work with trained and certified professionals on appropriate 
-					white hat
-					 suggestions for marketing opportunities on any budget. From pay-per-click advertising to search engine optimization Zoovy's marketing team is available for tasks large or small. Work directly with our marketing professionals just a phone call away.</p>
+					<p>anyCommerce's marketing experts evaluate marketing efforts to ensure that an e-business's budget is being distributed to the best possible areas. </p>
+					<p>Work with trained and certified professionals on appropriate white hat suggestions for marketing opportunities on any budget. From pay-per-click advertising to search engine optimization anyCommerce's marketing team is available for tasks large or small. Work directly with our marketing professionals just a phone call away.</p>
 					<ul>
 						<li>Increase sales</li>
 						<li>Increase brand awareness</li>
@@ -717,7 +718,7 @@ VERSION: 2013-1-22-15-57-00
 						<li>Marketplace Setup &amp; Product Upload</li>
 						<li>Marketplace Optimization</li>
 					</ul>
-					<p>Zoovy's marketing team has years of experience and proven success with providing top notch marketing service and advice for any e-business selling various products.</p>
+					<p>anyCommerce's marketing team has years of experience and proven success with providing top notch marketing service and advice for any e-business selling various products.</p>
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -753,10 +754,10 @@ VERSION: 2013-1-22-15-57-00
 					<li>Total # of Sales on Marketplace</li>
 				</ul>
 				<p></p>
-				<h4>Zoovy: The Complete MpO Solution</h4>
-				<p>The Zoovy e-Commerce platform is the best Marketplace Optimization Solution available to businesses. Our award winning software delivers improvements in all 5 functional areas of marketplace optimization, along with trained professionals who can advise how to use it.</p>
+				<h4>anyCommerce: The Complete MpO Solution</h4>
+				<p>The anyCommerce e-Commerce platform is the best Marketplace Optimization Solution available to businesses. Our award winning software delivers improvements in all 5 functional areas of marketplace optimization, along with trained professionals who can advise how to use it.</p>
 				<p>
-				<a class="pdf" target="corpPDF" href="/pdfs/marketplace_optimization.pdf">Learn more about Zoovy's Marketplace Optimization services</a>
+				<a class="pdf" target="corpPDF" href="/pdfs/marketplace_optimization.pdf">Learn more about anyCommerce's Marketplace Optimization services</a>
 				</br>
 				</br>
 				<a target="mpo" href="http://www.marketplaceoptimization.com">Learn more about Marketplace Optimization</a>
@@ -892,7 +893,7 @@ VERSION: 2013-1-22-15-57-00
 	                        <li><strong>Purchase  	protection for your customers: </strong>Your  	customers will feel more confident buying from your site knowing  	that they have the same protection under the <a href="https://payments.amazon.com/sdui/sdui/about?nodeId=6120" target="_blank"><U>Amazon  	A-to-z Guarantee</U></a> that they have when they shop on Amazon.com.</li>
                         </ul>
 
-                        <div style='font-size:14px; font-weight:bold; margin-bottom:20px;' align='center' ><a href="https://sellercentral.amazon.com/gp/on-board/workflow/Registration/login.html/902-0586098-4611057?passthrough/source=RPZOOVYA3U8OHMI7N1JUB&passthrough/ld=HOSTED&passthrough/account=cba&passthrough/superSource=OAR&passthrough/marketplaceID=AZ4B0ZS3LGLX" target="_blank">Sign Up Now</a></div>
+                        <div style='font-size:14px; font-weight:bold; margin-bottom:20px;' align='center' ><a href="https://sellercentral.amazon.com/gp/on-board/workflow/Registration/login.html/902-0586098-4611057?passthrough/source=RPanyCommerceA3U8OHMI7N1JUB&passthrough/ld=HOSTED&passthrough/account=cba&passthrough/superSource=OAR&passthrough/marketplaceID=AZ4B0ZS3LGLX" target="_blank">Sign Up Now</a></div>
 
                         <h4>Key Features of Checkout by Amazon</h4>
                         <ul>
@@ -950,7 +951,7 @@ VERSION: 2013-1-22-15-57-00
 			<div class="container">
 				<div class="feature_ebay">
 				<h3>eBay Integration</h3>
-						<p>With Zoovy, you can easily launch your product into eBay, eBay Motors or your eBay Store.  Launch items one at a time or use our power listing tool to automate launching/relaunching and let the inventory system stop launching when needed.</p>
+						<p>With anyCommerce, you can easily launch your product into eBay, eBay Motors or your eBay Store.  Launch items one at a time or use our power listing tool to automate launching/relaunching and let the inventory system stop launching when needed.</p>
 					<h4>Inventory management of your powerlisters</h4>
 						<p>Once you set up a powerlister listing, the inventory system can handle it from that point on.  Set a few parameters for how many listings you want listed at the same time and the listing will relist automatically until inventory is low.</p>
 					<h4>Seamless integration with all major shipping and payment providers</h4>
@@ -1015,9 +1016,9 @@ VERSION: 2013-1-22-15-57-00
 			<div class="container">
 				<div class="feature_market">
 					<h3>Marketplaces</h3>
-					<p>Selling on marketplaces can play a key role in a websites success by increasing exposure for more sales opportunities. Zoovy has integrated with the top marketplaces: Amazon, eBay, and Buy.com in an effort to help merchants diversify and sell more online.<br/><br/>
-					Zoovy simplifies and automates the process of listing products directly from a Zoovy web store to multiple marketplaces. Our built in system lets you control which products appear where, how much they sell for, and maintain inventory in real time. Orders and tracking information is also shared between Zoovy and the marketplace automatically. Maintaining everything in one central location saves time and money.<br/><br/>
-					Zoovy can provide live training for any marketplace integration assistance.</p>
+					<p>Selling on marketplaces can play a key role in a websites success by increasing exposure for more sales opportunities. anyCommerce has integrated with the top marketplaces: Amazon, eBay, and Buy.com in an effort to help merchants diversify and sell more online.<br/><br/>
+					anyCommerce simplifies and automates the process of listing products directly from a anyCommerce web store to multiple marketplaces. Our built in system lets you control which products appear where, how much they sell for, and maintain inventory in real time. Orders and tracking information is also shared between anyCommerce and the marketplace automatically. Maintaining everything in one central location saves time and money.<br/><br/>
+					anyCommerce can provide live training for any marketplace integration assistance.</p>
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -1030,8 +1031,8 @@ VERSION: 2013-1-22-15-57-00
 			<div class="container">
 				<div class="feature_market">
 					<h3>Comparison Shopping</h3>
-					<p>Zoovy makes it easy for merchants to increase exposure and visibility to shoppers with our automated product feeds for comparison shopping sites, sometimes referred to as shopping engines. Simply choose the products and shopping engines with a click of the button. The feeds are automated and have the ability to optimize product listings based on unique characteristics of each shopping site. Zoovy runs products through a validation process that ensures the feed quality, allowing more products to get to shopping sites successfully. Built in reporting helps determine how successful the shopping engines are based on performance.<br/><br/>
-					Zoovy integrates and supports the top comparison shopping engines and continually adds emerging comparison shopping sites. Whether it be Amazon Product Ads, Nextag, Pricegrabber, TheFind.com, or Google Products, Zoovy saves you time and money on the backend while making you money on the front.</p>
+					<p>anyCommerce makes it easy for merchants to increase exposure and visibility to shoppers with our automated product feeds for comparison shopping sites, sometimes referred to as shopping engines. Simply choose the products and shopping engines with a click of the button. The feeds are automated and have the ability to optimize product listings based on unique characteristics of each shopping site. anyCommerce runs products through a validation process that ensures the feed quality, allowing more products to get to shopping sites successfully. Built in reporting helps determine how successful the shopping engines are based on performance.<br/><br/>
+					anyCommerce integrates and supports the top comparison shopping engines and continually adds emerging comparison shopping sites. Whether it be Amazon Product Ads, Nextag, Pricegrabber, TheFind.com, or Google Products, anyCommerce saves you time and money on the backend while making you money on the front.</p>
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -1044,12 +1045,12 @@ VERSION: 2013-1-22-15-57-00
 			<div class="container">
 				<div class="multistores">
 					<h3>Multiple Stores</h3>
-					<h4>Capture more sales with multiple niche web stores all run by one common<br/> inventory and billing system</h4>
-					</br>
-					<span><img src="images/webstores_diagram-581x265.gif"/></span>
+					<h4>Capture more sales with multiple niche web stores all run by one common inventory and billing system</h4>
+					<p>One real-time inventory controls all of your anyCommerce stores</p>
+					<span><img src="images/webstores_diagram-581x265.png"/></span>
 					<p>Capitalize on multiple web stores without multiple headaches<br/><br/>
 					Capture more sales with multiple niche web stores all run by one common inventory and billing system<br/><br/>
-					The powerful 'Multi-Sites' function in Zoovy allows you to run multiple web stores, each with a completely different look and feel.<br/><br/>
+					The powerful 'Multi-Sites' function in anyCommerce allows you to run multiple web stores, each with a completely different look and feel.<br/><br/>
 					A common product and billing database contains the information for all of your stores in one place, allowing you to track all of your inventory and orders in real time, through a single interface.<br/><br/>
 					Take advantage of Multi-Sites to focus on niche areas of your product range, increasing your conversions by targeting a more tightly defined audience with specific products of interest.</p>
 				</div>
@@ -1067,8 +1068,8 @@ VERSION: 2013-1-22-15-57-00
 			<div class="container">
 				<div class="multistores">
 					<h3>Wholesale functionality</h3>
-					<h4>Offer different prices to different customers on the SAME web store by utilizing the dynamic pricing functions of the Zoovy Wholesale tools</h4>
-					<p>Create usergroups and individual accounts that instantly see different pricing of your products when they log in to your Zoovy store.<br/><br/>
+					<h4>Offer different prices to different customers on the SAME web store by utilizing the dynamic pricing functions of the anyCommerce Wholesale tools</h4>
+					<p>Create usergroups and individual accounts that instantly see different pricing of your products when they log in to your anyCommerce store.<br/><br/>
 					Offer special pricing on 'per-box/pallet' purchases and 'multiple order' discounts with user-configurable price rules.<br/><br/>
 					Support supply-chain functionality for your wholesale clients and your suppliers by importing and exporting product database information.<br/><br/></p>
 				</div>
@@ -1118,10 +1119,12 @@ VERSION: 2013-1-22-15-57-00
 						<div class="partnerImage"><img src="images/partners/authorizenet.png"/></div>
 						<div class="partnerText">Authorize.Net offers secure, scalable solutions that enable merchants to process unlimited transactions from anywhere in the world in multiple currencies. Our solutions support any business model.</div>
 					</div>
+					<!-- Image is missing? Removed from current site
 					<div class ="partnerContainer">
 						<div class="partnerImage"><img src="images/partners/atlastfulfillment"/></div>
 						<div class="partnerText">Leading provider of innovative outsourcing solutions for warehousing and fulfillment with leading-edge technology infrastructure to support eCommerce companies.</div>
 					</div>
+					-->
 					<div class ="partnerContainer">
 						<div class="partnerImage"><img src="images/partners/doba.gif"/></div>
 						<div class="partnerText">Drop Shipping. Simplified.™ Instant access to millions of wholesale products, drop–shipped directly to your customers. </div>
