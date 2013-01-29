@@ -108,6 +108,7 @@ VERSION: 2013-1-28-13-12-00
 			var cloud2delay = 12000;
 			
 			var animateCloud = function($cloud, time){
+				$cloud.stop();
 				$cloud.css("left", "110%");
 				$cloud.animate({"left": "-"+($cloud.outerWidth() + 100)+"px"}, time - 500, "linear");
 			}
