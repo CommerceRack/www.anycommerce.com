@@ -101,6 +101,23 @@ VERSION: 2013-1-28-13-12-00
 				}
 			}
 			
+			
+			//start cloud animation
+			var cloud1interval = 25000;
+			var cloud2interval = 35000;
+			var cloud2delay = 3000;
+			
+			var animateCloud = function($cloud, time){
+				$cloud.css("left", "110%");
+				$cloud.animate({"left": "-"+($cloud.outerWidth() + 100)+"px"}, time - 500, "linear");
+			}
+			animateCloud($("#cloudSmall1"), cloud1interval);
+			setInterval(function(){animateCloud($("#cloudSmall1"), cloud1interval);}, cloud1interval);
+			
+			setTimeout(function(){
+				animateCloud($("#cloudSmall2"), cloud2interval);
+				setInterval(function(){animateCloud($("#cloudSmall2"), cloud2interval);}, cloud2interval);
+			}, cloud2delay);
 		});
 		
 		var handlePopState = function(state){
@@ -202,6 +219,9 @@ VERSION: 2013-1-28-13-12-00
 </head>
 <body>
 		<section class="wrapper">
+			<div id="cloudBig"></div>
+			<div id="cloudSmall1" ></div>
+			<div id="cloudSmall2" ></div>
 			<section class="top_sec">
 				<header>
 					<div class="logo">

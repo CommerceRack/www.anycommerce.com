@@ -12,14 +12,50 @@ a img{
 	width:100%;
 	background-image:url(images/top_bg.jpg);
 	background-repeat:repeat-x;
+	position: relative;
+	z-index: 0;
+	overflow: hidden;
 }
 .top_sec{
 	width:100%;
+	position: relative;
+	z-index: 10;
+	/*
 	background-image:url(images/top_cloud_bg.jpg);
 	background-repeat:no-repeat;
 	background-position:center top;
+	*/
 	min-height:466px;
 }
+
+#cloudBig, #cloudSmall1, #cloudSmall2{
+	position: absolute;
+	z-index: 5;
+	background: url(images/cloud_sprite.png) no-repeat;
+}
+#cloudBig{
+	width: 988px;
+	height: 316px;
+	background-position: -27px 0px;
+	left: 50%;
+	margin-left: -494px;
+	top: 48px;
+}
+#cloudSmall1{
+	width: 303px;
+	height: 98px;
+	background-position: -27px -335px;
+	top: 160px;
+	left: 100%;
+}
+#cloudSmall2{
+	width: 250px;
+	height: 82px;
+	background-position: -388px -335px;
+	top: 90px;
+	left: 100%;
+}
+
 header{
 	margin: 0 auto;
     padding: 5px 0 0 0;
