@@ -26,7 +26,17 @@ VERSION: 2013-1-28-13-12-00
     s.parentNode.insertBefore(wf, s);
   })(); </script>
 	
-	
+	<script type="text/javascript">
+	/*
+	* FeedEk jQuery RSS/ATOM Feed Plugin 
+	* http://jquery-plugins.net/FeedEk/FeedEk.html
+	* Author : Engin KIZIL 
+	* http://www.enginkizil.com
+	*/
+	(function($){$.fn.FeedEk=function(opt){var def={FeedUrl:'',MaxCount:5,ShowDesc:true,ShowPubDate:true};if(opt){$.extend(def,opt)}var idd=$(this).attr('id');if(def.FeedUrl==null||def.FeedUrl==''){$('#'+idd).empty();return}var pubdt;$('#'+idd).empty().append('<div style="text-align:left; padding:3px;"><img src="images/feedek-loading.gif" /></div>');$.ajax({url:'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num='+def.MaxCount+'&output=json&q='+encodeURIComponent(def.FeedUrl)+'&callback=?',dataType:'json',success:function(data){$('#'+idd).empty();$.each(data.responseData.feed.entries,function(i,entry){$('#'+idd).append('<div class="ItemTitle"><a href="'+entry.link+'" target="_blank" >'+entry.title+'</a></div>');if(def.ShowPubDate){pubdt=new Date(entry.publishedDate);$('#'+idd).append('<div class="ItemDate">'+pubdt.toLocaleDateString()+'</div>')}if(def.ShowDesc)$('#'+idd).append('<div class="ItemContent">'+entry.content+'</div>')})}})}})(jQuery);
+	/* FeedEk */
+	</script>
+
 	<script type="text/javascript">
 
 		$.fn.doesExist = function(){
@@ -67,6 +77,9 @@ VERSION: 2013-1-28-13-12-00
 			pageAlias : {},
 			currentIntervals : []
 		};
+		
+		var path = document.URL;
+		
 		$(function(){
 			var $templates = $("#templates").children();
 			$templates.each(function(){
@@ -76,13 +89,24 @@ VERSION: 2013-1-28-13-12-00
 			
 			//set current template (page handler)
 			if(document.URL.indexOf("#!") !== -1){
+				path = document.URL.split("#!")[1];
 				showFromLocation(document.URL.split("#!")[1]);
 			} else {
 				showFromLocation("/");
 			}
 			
+			if(typeof window.onpopstate == 'object')	{
+				window.onpopstate = function(event) { 
+					handlePopState(event.state);
+				}
+			}
+			
 		});
-
+		
+		var handlePopState = function(state){
+			// alert(state);
+		}
+		
 		var showFromLocation = function(location){
 			//Find page if it exists, else the 404 page
 			// alert(location);
@@ -103,6 +127,15 @@ VERSION: 2013-1-28-13-12-00
 				show($("#404"));
 			}
 			//Use pushstate to change URL
+			
+			try	{
+
+				window.history.pushState(app.pageAlias[ourURI], app.pageAlias[ourURI]+" title", location);
+			}
+			catch(err)	{
+				
+				console.warn("Pushstate attempt failed!");
+			}
 		}
 
 		var show = function($nextPage){
@@ -163,6 +196,9 @@ VERSION: 2013-1-28-13-12-00
 		//	showRandomPage();
 		//}, 5000);
 	</script>
+	
+
+
 </head>
 <body>
 		<section class="wrapper">
@@ -177,8 +213,15 @@ VERSION: 2013-1-28-13-12-00
 							<li><a href="#!/services.html" id="servicesLink" onMouseOver="showDropDown($('#servicesDropDown'), $(this));" onMouseOut="hideDropDown($('#servicesDropDown'), $(this));">Services</a></li>
 							<li><a href="#!/features.html" id="featuresLink" onMouseOver="showDropDown($('#featuresDropDown'), $(this));" onMouseOut="hideDropDown($('#featuresDropDown'), $(this));">Features</a></li>
 							<li><a href="#!/partners.html">Partners</a></li>
-							<li><a href="https://www.zoovy.com/app/latest/admin.html?show=acreate">Sign me up!</a></li>
-							<li class="last"><a href="https://www.anycommerce.com/app/latest/admin.html">Login</a></li>
+							<li><a href="https://www.anycommerce.com/app/latest/admin.html?show=acreate">Sign me up!</a></li>
+							<li class="last">
+							<a id="loginlink" href="https://www.anycommerce.com/app/latest/admin.html">Login</a>
+							<script type="text/javascript">
+							// need to append a unique non-cachable date time to #loginlink
+							var d = new Date(); 
+							$('#loginlink').attr("href", $('#loginlink').attr("href")+'?v='+d.toString()); 
+							</script>
+							</li>
 						</ul>
 						<div id="servicesDropDown" class="dropdown" onMouseOver="showDropDown($(this), $('#servicesLink'));" onMouseOut="hideDropDown($(this), $('#servicesLink'));">
 							<ul>
@@ -388,11 +431,13 @@ VERSION: 2013-1-28-13-12-00
 			</section>
 			<section class="startselling">
 				<div class="startselling_inner">
-					<p>Learn how to expand your busines and make more sales the intelligent way now.<br />Send us your email address and one of our intrepid associates will get back to you shortly.</p>
+					<p>Learn how to expand your busines and make more sales the intelligent way now - just click the sign up link to get started.<br />
+<!--
 					<span>
 						<input type="text" placeholder="Your Email Address" />
 						<input class="button" type="button" value="Start Selling Better Now!" />
 					</span>
+-->
 				</div>
 			</section>
 			<section class="partners">
