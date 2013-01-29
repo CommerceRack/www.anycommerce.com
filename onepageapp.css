@@ -773,13 +773,11 @@ header > nav .tier2dropdown {
 }
 .partnerImage {
 	text-align: left;
-	height: 30px;
 	width: 29%;
 	display: inline-block;
 }
 .partnerText{
 	width: 70%;
-	height:30px;
 	display: inline-block;
 }
 /* Partner CSS ends here */
