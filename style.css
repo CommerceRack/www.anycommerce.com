@@ -294,7 +294,7 @@ header > nav.access > ul > li.first a, header > nav > ul > li.last a{
     color: #636363;
     float: left;
     font-family: 'Cabin Condensed', sans-serif;
-    font-size: 15px;
+    font-size: 20px;
     margin: 0;
     text-align: center;
     width: 100%;
@@ -412,8 +412,7 @@ footer{
     padding: 0 0 5px;
 }
 .footer_cols.col3 img {
-    float: right;
-    margin: 5px 0 0;
+    margin-left: 5px;
     width: 88px;
 }
 .footer_cols.col1 > ul {
@@ -482,13 +481,14 @@ footer{
     -webkit-border-radius: 15px 15px 15px 15px;
 }
 .footer .footer_cols.col1{
-	width:105px;
+	width:250px;
+	margin-left: 25px;
 }
 .footer .footer_cols.col2{
-	width:175px;
+	width:275px;
 }
 .footer .footer_cols.col3{
-	width:180px;
+	width:260px;
 }
 .footer_cols.col3 .social_icon > span {
     float: left;
@@ -497,10 +497,14 @@ footer{
 }
 .footer_cols.col4 > p {
     width: 215px;
+	color: #88D0DF;
+    font-family: 'Cabin Condensed', sans-serif;
+    font-size: 15px;
+    text-decoration: none;
 }
-.footer_cols.col3 .social_icon > span > img {
+.footer_cols.col3 .social_icon > span > a > img {
     float: left;
-    width: auto;
+    width: 27px;
 }
 .footer_cols .social_icon p {
     float: left;
