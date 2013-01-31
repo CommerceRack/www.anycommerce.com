@@ -796,3 +796,8 @@ header > nav .tier2dropdown {
 .clear {
 	clear: both;
 }
+
+#signupBtnContainer{
+	text-align:center;
+	margin-top: 20px;
+}

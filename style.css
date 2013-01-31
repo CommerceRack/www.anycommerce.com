@@ -292,47 +292,11 @@ header > nav.access > ul > li.first a, header > nav > ul > li.last a{
 }
 .startselling_inner > p {
     color: #636363;
-    float: left;
     font-family: 'Cabin Condensed', sans-serif;
     font-size: 20px;
     margin: 0;
     text-align: center;
     width: 100%;
-}
-.startselling_inner > span {
-	float: left;
-    margin: 0;
-    padding: 10px 0px;
-    width: 900px;
-}
-.startselling_inner > span input {
-	border: 1px solid #7B8488;
-    color: #7B8488;
-    float: left;
-    font-family: 'Cabin Condensed', sans-serif;
-    font-style: italic;
-    margin: 8px 100px 0;
-    padding: 5px;
-    width: 400px;
-}
-.startselling_inner > span input.button{
-	background: none repeat scroll 0 0 #E24B2C;
-    border: medium none;
-    color: #FFFFFF;
-    font-family: 'BenchNine', sans-serif;
-    font-size: 22px;
-    font-style: normal;
-	float:right;
-    margin: 0px 100px 0px 0px;
-    padding: 4px 10px;
-    width: auto;
-    *width: 300px;
-    border-radius: 45px 45px 45px 45px;
-    -o-border-radius: 45px 45px 45px 45px;
-    -ms-border-radius: 45px 45px 45px 45px;
-    -moz-border-radius: 45px 45px 45px 45px;
-    -khtml-border-radius: 45px 45px 45px 45px;
-    -webkit-border-radius: 45px 45px 45px 45px;
 }
 .barand_logo{
 	width:100%;
