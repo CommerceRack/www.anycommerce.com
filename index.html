@@ -3,7 +3,7 @@
 <head>
 <!--
 
-VERSION: 2013-2-1-13-52-00
+VERSION: 2013-2-4-10-54-00
 
 -->
 	<meta charset="utf-8">
@@ -129,7 +129,7 @@ VERSION: 2013-2-1-13-52-00
 			//Find page if it exists, else the 404 page
 			// alert(location);
 			console.log("called showFromLocation('"+location+"')");
-			var ourURI = location.toString();
+			var ourURI = location;
 			if ( ourURI.indexOf('#!') >= 0) {
 				ourURI = ourURI.substring( ourURI.indexOf('#!')+2 );	 // strip up to and after #!
 				}
@@ -151,7 +151,6 @@ VERSION: 2013-2-1-13-52-00
 				window.history.pushState(location, app.pageAlias[ourURI]+" title", location);
 			}
 			catch(err)	{
-				
 				console.warn("Pushstate attempt failed!");
 			}
 		}
@@ -1290,7 +1289,7 @@ VERSION: 2013-2-1-13-52-00
 			else if (ls[i].href.substring(0,ourURI.length) == ourURI) {
 				console.log('rewrite - '+ls[i].href);
 				ls[i].onclick = function(e) { 
-					showFromLocation(e.currentTarget); 
+					showFromLocation(e.currentTarget.toString()); 
 					return(false); 
 					};
 				}

@@ -1,3 +1,10 @@
+/****************
+JQUERY ANIMATION MOBILE FIX
+****************/
+body, body * {
+	-webkit-transform: translateZ(0);
+}
+
 /********************************
 
 DROPDOWN CSS
