@@ -59,11 +59,11 @@ VERSION: 2013-2-1-13-52-00
 			return 1000;
 		}
 		
-		var defaultInitFunction = function(){
+		var defaultInitFunction = function($page){
 			//Default Init does nothing, but here for structural symmetry
 		}
 		
-		var defaultDestroyFunction = function(){
+		var defaultDestroyFunction = function($page){
 			for(var i=0; i<app.currentIntervals.length; i++){
 				clearInterval(app.currentIntervals[i]);
 			}
@@ -157,27 +157,31 @@ VERSION: 2013-2-1-13-52-00
 		}
 
 		var show = function($nextPage){
-			var id=$nextPage.attr("id");
+			var id;
 			//Transition out current page, if it exists
 			var delay = 0;
 			if(typeof app.currentPage !== "undefined"){
+				id=app.currentPage.attr("id");
 				var transitionOutFunction;
 				if(typeof app.pages[id] !== "undefined" && typeof app.pages[id]["transitionOut"] !== "undefined")
 					transitionOutFunction = app.pages[id]["transitionOut"];
 				if(typeof transitionOutFunction === "undefined")
 					transitionOutFunction = defaultTransOut;
 				delay = transitionOutFunction(app.currentPage);
+				
+				var destroyFunction;
+				if(typeof app.pages[id] !== "undefined" && typeof app.pages[id]["destroy"] !== "undefined")
+					destroyFunction = app.pages[id]["destroy"];
+				if(typeof destroyFunction === "undefined")
+					destroyFunction = defaultDestroyFunction;
+				destroyFunction(app.currentPage);
 			}
 			
-			var destroyFunction;
-			if(typeof app.pages[id] !== "undefined" && typeof app.pages[id]["destroy"] !== "undefined")
-				destroyFunction = app.pages[id]["destroy"];
-			if(typeof destroyFunction === "undefined")
-				destroyFunction = defaultDestroyFunction;
-			destroyFunction();
+			
 			
 			//Transition in next page
 			setTimeout(function(){
+				id=$nextPage.attr("id");
 				var transitionInFunction;
 				if(typeof app.pages[id] !== "undefined" && typeof app.pages[id]["transitionIn"] !== "undefined")
 					transitionInFunction = app.pages[id]["transitionIn"];
@@ -191,7 +195,7 @@ VERSION: 2013-2-1-13-52-00
 					initFunction = app.pages[id]["init"];
 				if(typeof initFunction === "undefined")
 					initFunction = defaultInitFunction;
-				initFunction();
+				initFunction($nextPage);
 			}, delay);
 			
 		};
