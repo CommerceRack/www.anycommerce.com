@@ -119,10 +119,49 @@ VERSION: 2013-2-4-10-54-00
 				animateCloud($("#cloudSmall2"), cloud2interval);
 				setInterval(function(){animateCloud($("#cloudSmall2"), cloud2interval);}, cloud2interval);
 			}, cloud2delay);
+			
+			rewriteLinks();
 		});
 		
+		var rewriteLinks = function(){
+			/*
+			var ourURI = document.URL;
+			if (ourURI.indexOf('#') >= 0) { ourURI = ourURI.substring(0,ourURI.indexOf('#')); }	// strip after #
+			for (var ls = document.links, numLinks = ls.length, i=0; i<numLinks; i++){
+				if (ls[i].href  == ourURI) {
+					// this link points at us, skip 
+				}
+				else if (ls[i].href.substring(0,ourURI.length) == ourURI) {
+					console.log('rewrite - '+ls[i].href);
+					ls[i].onclick = function(e) {
+						showFromLocation(e.currentTarget.href); 
+						return(false); 
+					};
+				}
+				// console.log(ls[i].href+" "+ls[i].target);
+			}
+			*/
+			
+			var ourURI = document.URL;
+			if (ourURI.indexOf('#') >= 0) { ourURI = ourURI.substring(0,ourURI.indexOf('#')); }
+			
+			$("a").each(function(){
+				var $a = $(this);
+				console.log($a.attr('href'));
+				//console.log($a);
+				if(typeof $a.attr('href') !== 'undefined' && $a.attr('href').indexOf('#!') >= 0){
+					$a.click(function(){
+						console.log($a);
+						showFromLocation($a.attr('href'));
+						return false;
+					});
+				}
+			});
+		}
+		
 		var handlePopState = function(state){
-			showFromLocation(state);
+			if(state)
+				showFromLocation(state);
 		}
 		
 		var showFromLocation = function(location){
@@ -340,7 +379,6 @@ VERSION: 2013-2-4-10-54-00
 								<li><a href="https://plus.google.com/communities/116963859586424761606" target="_blank"><img src="images/googleplus-512-red27x27.png" width="27" height="27"/> Join </a></li>
 								<li><a href="https://twitter.com/AnyCommerce1" target="_blank"><img src="images/twitter_512x512.png" width="27" height="27"/> Follow</a></li>
 							</ul>
-							</span>
 						</div>
 			</div>
 			<div class="footer_cols col4">
@@ -396,7 +434,6 @@ VERSION: 2013-2-4-10-54-00
 					</div>
 					<div class="clear"></div>
 				</div>
-			</section>
 			<section class="grass"></section>
 			<section class="glance">
 				<div class="glance_inner">
@@ -700,7 +737,7 @@ VERSION: 2013-2-4-10-54-00
 					</div>
 				</div>
 				<div class="build_apps">
-					<p>The future is now! The app framework is where the e-commerce world will find itself within the next few years. Contact your Customer Service Representative or email us at <a href="mailto:info@zoovy.com">info@zoovy.com</a> for more information and get started with your new app-based store today!</br></br></br>
+					<p>The future is now! The app framework is where the e-commerce world will find itself within the next few years. Contact your Customer Service Representative or email us at <a href="mailto:info@zoovy.com">info@zoovy.com</a> for more information and get started with your new app-based store today!<br /><br /><br />
 					</p>
 				</div>
 				<!--div class="developer_take">
@@ -729,6 +766,7 @@ VERSION: 2013-2-4-10-54-00
 							<li>Promotions: Coupons/Newsletters/Giftcards </li>
 							<li>Product Catalog</li>
 						</ul>
+					</span>
 				<p>Live training can be scheduled M-F and cost is dependent upon package.</p>
 				<h4>USA Based Tech Support</h4>
 				<p>Tech support is available 6am to 6pm PST, 6 days a week. anyCommerce tech support is available through phone, help-desk platform, and live chat. All techs are fully trained on all aspects of anyCommerce interface and integrations. </p>
@@ -769,6 +807,7 @@ VERSION: 2013-2-4-10-54-00
 						<li>Marketplace Optimization</li>
 					</ul>
 					<p>anyCommerce's marketing team has years of experience and proven success with providing top notch marketing service and advice for any e-business selling various products.</p>
+					</span>
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -814,11 +853,11 @@ VERSION: 2013-2-4-10-54-00
 				<p>The anyCommerce e-Commerce platform is the best Marketplace Optimization Solution available to businesses. Our award winning software delivers improvements in all 5 functional areas of marketplace optimization, along with trained professionals who can advise how to use it.</p>
 				<p>
 				<a class="pdf" target="corpPDF" href="pdfs/marketplace_optimization.pdf">Learn more about anyCommerce's Marketplace Optimization services</a>
-				</br>
-				</br>
+				<br />
+				<br />
 				<a target="mpo" href="http://www.marketplaceoptimization.com">Learn more about Marketplace Optimization</a>
-				</br>
-				</br>		
+				<br />
+				<br />		
 				</p>
 						</div>
 				</div>
@@ -934,7 +973,7 @@ VERSION: 2013-2-4-10-54-00
                 <br />
 
 
-                        <h4>Key Benefits to You</strong></h4>
+                        <h4><strong>Key Benefits to You</strong></h4>
                         <ul>
 	                        <li><strong>Increased  	conversion:</strong> Amazon's familiar checkout experience, 1-Click ordering, A-to-z  	Guarantee, and tens of millions of customers who can checkout  	without re-entering information helps you optimize conversion on  	your website.</li>
 	                        <li><strong>Reduced  	bad debt:</strong> Amazon's proven fraud detection capabilities, chargeback controls,  	and risk management processes reduce bad debt.</li>
@@ -942,7 +981,7 @@ VERSION: 2013-2-4-10-54-00
 	                       <!-- <li><strong>Cart  	up-sell:</strong> Checkout by Amazon enables you to up-sell your products within the  	checkout pipeline. At your option, you can also earn Amazon.com  	Associate commissions for up-selling Amazon products during  	checkout.</li> -->
 	                        <li><strong>Works  	seamlessly with Fulfillment by Amazon:</strong> Checkout by Amazon combined with <a href="http://www.amazon.com/gp/seller/fba/fulfillment-by-amazon.html" target="_blank"><U>Fulfillment  	by Amazon (FBA)</U></a> enables you to outsource both transaction processing and  	fulfillment. **</li>
                         </ul>
-                        <h4>Key Benefits to Your Customers</strong></h4>
+                        <h4><strong>Key Benefits to Your Customers</strong></h4>
                         <ul>
 	                        <li><strong>Convenience:</strong> Customers can use the information in their Amazon.com account to  	complete purchases on your website without having to re-enter their  	shipping address or payment information. Customers can also place  	orders instantly using Amazon's patented 1-Click feature.</li>
 	                        <li><strong>Trusted  	checkout experience:</strong> The secure and familiar checkout experience customers enjoy at  	Amazon.com is now available on your website.</li>
@@ -1016,7 +1055,7 @@ VERSION: 2013-2-4-10-54-00
 							<li>Compatible with Quickbooks Pro</li>
 							<li>Integrated with PayPal, Authorizenet, e-Online Data, Card Service International and VeriSign</li>
 						</ul>
-						</br></br>
+						<br /><br />
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -1054,12 +1093,12 @@ VERSION: 2013-2-4-10-54-00
 							<li>Batch send shipment confirmations via email</li>
 							<li>Easily communicate inventory availability to customer during order fulfillment</li>
 						</ul>
-						</br>
-						</br>
+						<br />
+						<br />
 					</span>
-					</br>
-				</br>
-				</br>
+					<br />
+				<br />
+				<br />
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -1277,26 +1316,7 @@ VERSION: 2013-2-4-10-54-00
 
 	</div>
 
-<script type="text/javascript">
 
-		// make all links in document clickable
-		var ourURI = document.URL;
-		if (ourURI.indexOf('#') >= 0) { ourURI = ourURI.substring(0,ourURI.indexOf('#')); }	// strip after #
-		for (var ls = document.links, numLinks = ls.length, i=0; i<numLinks; i++){
-			if (ls[i].href  == ourURI) {
-				// this link points at us, skip 
-				}
-			else if (ls[i].href.substring(0,ourURI.length) == ourURI) {
-				console.log('rewrite - '+ls[i].href);
-				ls[i].onclick = function(e) {
-					showFromLocation(e.currentTarget.href); 
-					return(false); 
-					};
-				}
-			// console.log(ls[i].href+" "+ls[i].target);
-			}
-
-</script>
 
 </body>
 

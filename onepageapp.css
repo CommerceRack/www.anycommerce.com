@@ -276,26 +276,26 @@ header > nav .tier2dropdown {
 	height:106px;
 }
 .icons_img span.arrow{
-	background: url("images/service_path.png") repeat scroll 146px 0 transparent;
+	background: url(images/service_path.png) repeat scroll 146px 0 transparent;
     float: left;
     height: 106px;
     width: 44px;
 }
 .icons_img span.arrow1{
-	background: url("images/service_path.png") repeat scroll 145px 0 transparent;
+	background: url(images/service_path.png) repeat scroll 145px 0 transparent;
     float: left;
     height: 106px;
     width: 44px;
 }
 .icons_img a.develop{
 	float:left;
-	background: url("images/service_path.png") repeat scroll -145px 0 transparent;
+	background: url(images/service_path.png) repeat scroll -145px 0 transparent;
 	width:102px;
 	height:106px;
 }
 .icons_img a.test{
 	float:left;
-	background: url("images/service_path.png") repeat scroll -290px 0 transparent;
+	background: url(images/service_path.png) repeat scroll -290px 0 transparent;
 	width:102px;
 	height:106px;
 }
@@ -390,24 +390,24 @@ header > nav .tier2dropdown {
 
 .icons_img a.design_active{
 	float:left;
-	background:url(../images/service_path_des.png);
+	background:url(images/service_path_des.png);
 	width:102px;
 	height:106px;
 }
 .icons_img a.develop_nonactive{
 	float:left;
-	background: url("../images/service_path_des.png") repeat scroll -145px 0 transparent;
+	background: url(images/service_path_des.png) repeat scroll -145px 0 transparent;
 	width:102px;
 	height:106px;
 }
 .icons_img a.test_nonactive{
 	float:left;
-	background: url("../images/service_path_des.png") repeat scroll -290px 0 transparent;
+	background: url(images/service_path_des.png) repeat scroll -290px 0 transparent;
 	width:102px;
 	height:106px;
 }
 .icons_img span.arrow1_nonactive{
-	background: url("../images/service_path_des.png") repeat scroll 145px 0 transparent;
+	background: url(images/service_path_des.png) repeat scroll 145px 0 transparent;
     float: left;
     height: 106px;
     width: 44px;
@@ -446,24 +446,24 @@ header > nav .tier2dropdown {
 
 .icons_img a.design_nonactive{
 	float:left;
-	background:url(../images/service_path_dev.png);
+	background:url(images/service_path_dev.png);
 	width:102px;
 	height:106px;
 }
 .icons_img a.develop_active{
 	float:left;
-	background: url("../images/service_path_dev.png") repeat scroll -145px 0 transparent;
+	background: url("images/service_path_dev.png") repeat scroll -145px 0 transparent;
 	width:102px;
 	height:106px;
 }
 .icons_img a.test_nonactive{
 	float:left;
-	background: url("../images/service_path_dev.png") repeat scroll -290px 0 transparent;
+	background: url("images/service_path_dev.png") repeat scroll -290px 0 transparent;
 	width:102px;
 	height:106px;
 }
 .icons_img span.arrow_nonactive{
-	background: url("../images/service_path_dev.png") repeat scroll 286px 0 transparent;
+	background: url("images/service_path_dev.png") repeat scroll 286px 0 transparent;
     float: left;
     height: 106px;
     width: 44px;
@@ -503,30 +503,30 @@ header > nav .tier2dropdown {
 
 .icons_img a.design_nonactive{
 	float:left;
-	background:url(../images/service_path_tes.png);
+	background:url(images/service_path_tes.png);
 	width:102px;
 	height:106px;
 }
 .icons_img a.develop_nonactive{
 	float:left;
-	background: url("../images/service_path_tes.png") repeat scroll -145px 0 transparent;
+	background: url(images/service_path_tes.png) repeat scroll -145px 0 transparent;
 	width:102px;
 	height:106px;
 }
 .icons_img a.test_active{
 	float:left;
-	background: url("../images/service_path_tes.png") repeat scroll -286px 0 transparent;
+	background: url(images/service_path_tes.png) repeat scroll -286px 0 transparent;
 	width:102px;
 	height:106px;
 }
 .icons_img span.arrow_nonactive{
-	background: url("../images/service_path_tes.png") repeat scroll 286px 0 transparent;
+	background: url(images/service_path_tes.png) repeat scroll 286px 0 transparent;
     float: left;
     height: 106px;
     width: 44px;
 }
 .icons_img span.arrow1_nonactive{
-	background: url("../images/service_path_tes.png") repeat scroll 286px 0 transparent;
+	background: url(images/service_path_tes.png) repeat scroll 286px 0 transparent;
     float: left;
     height: 106px;
     width: 44px;
