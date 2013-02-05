@@ -1,8 +1,8 @@
 /****************
 JQUERY ANIMATION MOBILE FIX
 ****************/
-body, body * {
-	-webkit-transform: translateZ(0);
+#cloudBig, #cloudSmall1, #cloudSmall2 {
+	-webkit-transform: translate3d(0,0,0);
 }
 
 /********************************
