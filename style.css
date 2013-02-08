@@ -441,21 +441,17 @@ footer{
     font-size: 13px;
     text-decoration: none;
 }
-.footer_cols.col3 ul{
-	list-style: none outside none;
+.footer_cols.col3 div{
     margin: 0;
     padding: 0;
     width: 100%;
-}
-.footer_cols.col3 ul li a {
-	color: #88D0DF;
+	float: left;
     font-family: 'Cabin Condensed',sans-serif;
     font-size: 13px;
-    text-decoration: none;
+	color: #88D0DF;
 }
 .footer .footer_cols.col3 h3 {
 	width: 300px;
-	margin-right: 90px;	
 }
 .footer .footer_cols.col3 h3 img{
 	vertical-align: -6px;
