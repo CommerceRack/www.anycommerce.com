@@ -295,7 +295,7 @@ header > nav.access > ul > li.first a, header > nav > ul > li.last a{
 .startselling_inner > p {
     color: #636363;
     font-family: 'Cabin Condensed', sans-serif;
-    font-size: 20px;
+    font-size: 19px;
     margin: 0;
     text-align: center;
     width: 100%;
@@ -416,7 +416,7 @@ footer{
     -webkit-border-radius: 15px 15px 15px 15px;
 }
 .footer .footer_cols.col1{
-	width:300px;
+	width:315px;
 }
 .footer .footer_cols  h3 {
     color: #FFFFFF;
@@ -441,14 +441,8 @@ footer{
     font-size: 13px;
     text-decoration: none;
 }
-.footer_cols.col3 div{
-    margin: 0;
-    padding: 0;
-    width: 100%;
-	float: left;
-    font-family: 'Cabin Condensed',sans-serif;
-    font-size: 13px;
-	color: #88D0DF;
+.footer .footer_cols.col3{
+	width: 385px;
 }
 .footer .footer_cols.col3 h3 {
 	width: 300px;
@@ -456,6 +450,22 @@ footer{
 .footer .footer_cols.col3 h3 img{
 	vertical-align: -6px;
 	margin-left: 10px;
+}
+.socialLink{
+	display: block;
+	float: left;
+	text-decoration: none;
+	margin: 0px 18px;
+}
+.socialLink img{
+	display: block;
+}
+.socialLink div{
+	display: block;
+    font-family: 'Cabin Condensed',sans-serif;
+    font-size: 13px;
+	color: #88D0DF;
+	text-align: center;
 }
 .footer_cols.col4 > p {
     width: 215px;
@@ -465,7 +475,6 @@ footer{
     text-decoration: none;
 }
 .footer .footer_cols.col4{
-	margin-right:0;
 	width:200px;
 }
 footer > .copyright {
