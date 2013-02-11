@@ -793,7 +793,57 @@ header > nav .tier2dropdown {
 }
 /* Partner CSS ends here */
 
-
+/* About Company starts here */
+.abt_zoovy_head{
+	float:left;
+	width:100%;
+}
+.abt_zoovy_head h3{
+	float:left;
+	width:100%;
+	padding: 0 0 15px;
+}
+.mission_stmnt{
+	float:left;
+	width:100%;
+	padding: 0 0 30px;
+}
+.mission_stmnt_img{
+	float:left;
+	width:220px;
+}
+.mission_stmnt_des{
+	float:left;
+	width:540px;
+}
+.mission_stmnt_des h4{
+	color: rgb(0, 93, 134);
+    font-family: 'Puritan', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.4;
+    padding: 0;
+	margin: 10px 0 0;
+}
+.mission_stmnt_des h5{
+	color: rgb(0, 93, 134);
+    font-family: 'Puritan', sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.4;
+    padding: 0;
+	margin: 10px 0 0;
+}
+.mission_stmnt_des p{
+	font-family: abel,sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.35;
+    padding: 0;
+    text-align: justify;
+	float:left;
+}
+/* About Comapny ends here*/
 
 .access a.hover {
 	color: #E24B2C;
