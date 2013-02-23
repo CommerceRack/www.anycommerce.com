@@ -861,3 +861,12 @@ header > nav .tier2dropdown {
 .increaseMPO img{
 margin-right: 16px;
 }
+
+.legal{
+	float:left;
+	width:100%;
+	min-height:285px;
+}
+.legal span.legalInfo{
+	float:left;
+}
