@@ -808,12 +808,12 @@ header > nav .tier2dropdown {
 	width:100%;
 	padding: 0 0 30px;
 }
-.mission_stmnt_img{
+.mission_stmnt_img img{
 	float:left;
-	width:220px;
+	height:200px;
+	margin: 5px 40px 10px 0px;
 }
 .mission_stmnt_des{
-	float:left;
 	width:540px;
 }
 .mission_stmnt_des h4{
@@ -833,15 +833,12 @@ header > nav .tier2dropdown {
     line-height: 1.4;
     padding: 0;
 	margin: 10px 0 0;
+	text-align: justify;
 }
 .mission_stmnt_des p{
-	font-family: abel,sans-serif;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1.35;
-    padding: 0;
-    text-align: justify;
+    line-height: 1.4;
 	float:left;
+	margin: 10px 0px;
 }
 /* About Comapny ends here*/
 
