@@ -896,3 +896,10 @@ margin-right: 16px;
 .legalLink a:hover{
 	color: #E24B2C;
 }
+.legalList{
+	font-family: abel,sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.35;
+    text-align: justify;
+}
